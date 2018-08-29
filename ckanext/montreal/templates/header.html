@@ -13,7 +13,7 @@
               {% if c.userobj.sysadmin %}
                 <li>
                   <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
-                    <i class="icon-legal" aria-hidden="true"></i>
+                    <i class="fa fa-legal" aria-hidden="true"></i>
                     <span class="text">{{ _('Admin') }}</span>
                   </a>
                 </li>
@@ -28,7 +28,7 @@
               <li class="notifications {% if new_activities > 0 %}notifications-important{% endif %}">
                 {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', new_activities) %}
                 <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="{{ notifications_tooltip }}">
-                  <i class="icon-dashboard" aria-hidden="true"></i>
+                  <i class="fa fa-dashboard" aria-hidden="true"></i>
                   <span class="text">{{ _('Dashboard') }}</span>
                   <span class="badge">{{ new_activities }}</span>
                 </a>
@@ -36,7 +36,7 @@
               {% block header_account_settings_link %}
                 <li>
                   <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
-                    <i class="icon-cog" aria-hidden="true"></i>
+                    <i class="fa fa-cog" aria-hidden="true"></i>
                     <span class="text">{{ _('Settings') }}</span>
                   </a>
                 </li>
@@ -44,7 +44,7 @@
               {% block header_account_log_out_link %}
                 <li>
                   <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
-                    <i class="icon-signout" aria-hidden="true"></i>
+                    <i class="fa fa-signout" aria-hidden="true"></i>
                     <span class="text">{{ _('Log out') }}</span>
                   </a>
                 </li>
@@ -118,7 +118,7 @@
           <div class="field">
             <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
             <input id="field-sitewide-search" type="text" name="q" placeholder="{{ _('Search') }}" />
-            <button class="btn-search" type="submit"><i class="icon-search"></i></button>
+            <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
           </div>
         </form>
       {% endblock %}
