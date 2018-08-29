@@ -1,0 +1,225 @@
+@charset "utf-8";
+/* CSS Document */
+
+body.home #main {
+	position:relative;
+}
+#bloc-principal {
+	overflow:hidden;
+}
+#bloc-principal h1 {
+	margin-bottom: 20px;
+}
+#bloc-principal p,
+.bloc-accueil p {
+	font-size:13px;
+	line-height:16px;
+	margin-bottom:15px;
+}
+a.plus {
+	position:absolute;
+	bottom:20px;
+	right:20px;
+}
+body.home div#titre-groupe {
+	diplay:block;
+	height:20px;
+	width:100%;
+}
+/*
+En-tête
+*/
+
+body.home button#afficher-options-de-recherche {
+	display:none;
+}
+body.home button#menu-toggle {
+	right: 20px;
+}
+/*
+Dalle d'icônes pour accéder aux groupes (thématiques)
+*/
+#thematiques {
+	position:relative;
+}
+ul#liste-categories {
+	width: 940px;
+	overflow: hidden;
+}
+ul#liste-categories li {
+	/* display: inline-block; */
+	float: left;
+	margin: 0 20px 0 0;
+	padding-bottom: 20px;
+	position:relative;
+	text-align: center;
+	width: 133px;
+}
+ul#liste-categories li figure,
+ul#liste-categories li img,
+ul#liste-categories li figcaption {
+	width:100%;
+}
+ul#liste-categories li figure {
+	text-align: center;
+}
+ul#liste-categories li figcaption {
+	font-size: 11px;
+	height: 30px;
+	line-height: 12px;
+}
+ul#liste-categories li img {
+	height: auto;
+	margin:0;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	ul#liste-categories {
+		width: 704px;
+	}
+	ul#liste-categories li {
+		width: 97px;
+	}
+}
+@media (max-width: 767px) {
+	ul#liste-categories {
+		width: 100%;
+	}
+	ul#liste-categories li {
+		margin: 0 10px 10px 0;
+		width: 90px;
+	}
+}
+
+@media (max-width: 414px) {
+	ul#liste-categories li {
+		width: 28%;
+	}
+}
+@media (max-width: 240px) {
+	ul#liste-categories li {
+		width: 40%;
+	}
+}
+
+/*
+Colonnes du bas
+*/
+.home #actualites h2.widget-title {
+	height:35px;
+}
+.bloc-accueil {
+    border-top: 4px solid #E4312A;
+	background-color:#FFF;
+	display:block;
+	height: 400px;
+	position:relative;
+	margin-bottom:20px;
+	overflow:hidden;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	.bloc-accueil {
+		height: 500px;
+	}
+}
+@media (max-width: 767px) {
+	.bloc-accueil {
+		height:auto;
+	}
+}
+
+.bloc-accueil h2 {
+	color: #E4312A;
+    background-color: #F6F6F6;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 7px 20px;
+	position:relative;
+}
+
+#actualites h3,
+#actualites p {
+	padding: 0 20px;
+}
+#twitter ul, #palmares ul {
+	margin: 0 20px 0 35px;
+	color: #E4312A;
+}
+#palmares ul li,
+#twitter ul li {
+	line-height:normal;
+}
+#palmares ul li:before,
+#twitter ul li:before {
+	/* content:'\2022'; */ /* For a round bullet */
+	content:'\25A0'; /* For a square bullet */
+	display: block;
+	position: relative;
+	max-width: 0px;
+	max-height: 0px;
+	left: -15px;
+	top: -0px;
+	color: #E4312A;
+	font-size: 14px;
+}
+/* Palmarès des fiches les plus consultees */
+#palmares ul li {
+	margin-bottom:10px;
+}
+#palmares .nb-consultations {
+	display:block;
+	font-size:13px;
+	color:#666666;
+}
+/* Echanges Twitter */
+.aktt_tweets ul li {
+	color: black;
+    font-size: 13px;
+    line-height: auto;
+    margin-bottom: 10px;
+	list-style: none;
+}
+.aktt_tweets ul li a {
+	word-wrap: break-word;
+}
+a.aktt_tweet_time {
+	color:#666666;
+	display:block;
+	font-size: 9px;
+}
+.tb_tools, .tb_twitterlogo, #tweetblender-1 .tb_photo {
+    display: none;
+}
+#twitter .tweet-footer {
+	bottom: 20px;
+	position: absolute;
+	left: 20px;
+	width: 260px;
+    z-index: 51;
+}
+#twitter .tweet-footer a.twitter-logo {
+
+}
+#twitter .tweet-footer a.suivez-nous {
+	float: right;
+}
+@media (max-width: 979px) {
+	#twitter .tweet-footer {
+		width: auto;
+	}
+	#twitter .tweet-footer a.suivez-nous {
+		float: none;
+	}
+}
+@media (max-width: 767px) {
+	a.plus,
+	#twitter .tweet-footer {
+		bottom:auto;
+		display: block;
+		float: none;
+		margin: 40px 0 20px;
+		position: relative;
+		left: 20px;
+	}
+
+}

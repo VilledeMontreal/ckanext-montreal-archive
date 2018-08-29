@@ -1,0 +1,1002 @@
+/*
+Theme Name: DonnÃ©es ouvertes 4
+Description: ThÃ¨me-enfant de Twenty Twelve. Version responsive pour CKAN 2.4.
+Author: Martin Beaudin-Lecours pour la Division des solutions numÃ©riques
+Template: twentytwelve
+Version: 4.0
+*/
+
+
+/*
+
+	Reset
+	Polices
+	Structure
+	Images
+	Headings
+	Tableaux
+	Listes
+	Plan du site
+	Liens
+	Page des rÃ©sultats de recherche
+	Modules (ou widgets) de style CKAN
+		Module Info
+		Module Social ("Partager")
+	Actualites
+	Page des applications
+	Formulaires
+
+*/
+
+/*
+Reset
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption,
+th,
+td {
+	font-weight: normal;
+	text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+html {
+	overflow-y: scroll;
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+a:focus {
+	outline: thin dotted;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+	display: block;
+}
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+audio:not([controls]) {
+	display: none;
+}
+del {
+	color: #333;
+}
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin: 24px;
+	margin-bottom: 1.714285714rem;
+}
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+small {
+	font-size: smaller;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+.assistive-text, .site .screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+}
+
+/*
+Polices
+*/
+.site-content article {
+    -moz-hyphens:none;
+    word-wrap:normal;
+	line-height: 1.45em;
+}
+body,
+body.custom-font-enabled,
+h1, h2, h3, h4, h5, h6  {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+    line-height: 20px;
+}
+
+.archive-title, .page-title, .widget-title, .entry-content th, .comment-content th {
+    font-weight: normal;
+    text-transform:none;
+	font-size: 1rem;
+}
+
+/*
+Structure
+*/
+body, html {
+	background-color:#E6E2DB; /* body.custom-background est gÃ©nÃ©rÃ© sur la page en fonction de la personnalisation de l'apparence dans le tableaux de bord */
+	height:100%;
+	top:0;
+	bottom:0;
+	position:relative;
+}
+#page {
+	background-color: #E6E2DB;
+	/*
+	padding:0;
+	margin: 0 auto;
+	box-shadow:none;
+	min-height:100%;
+	max-width:940px;
+	*/
+}
+#main {
+	background-color:#E6E2DB;
+}
+#primary #content,
+#secondary aside {
+	background-color:#FFFFFF;
+	border-top: 4px solid #E4312A;
+}
+#primary #content {
+	padding:20px;
+}
+.site-content {
+	/* float:right;
+	width: 650px; */
+}
+.widget-area {
+	/* float:left;
+	width:290px;*/
+}
+#primary article {
+    -moz-hyphens:none;
+    word-wrap:normal;
+	line-height: 1.45em;
+	/* border-bottom: none; */
+	margin-bottom:20px;
+}
+.site-content article {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.page article,
+.single article {
+    padding-bottom: 0;
+	border:none;
+}
+.archive-header, .page-header {
+	padding:0;
+	margin:0;
+}
+.site-content, .widget-area {
+	float:right;
+	margin-top:0;
+}
+#primary #content {
+	/* padding:20px; */
+	position:relative;
+	margin-bottom:20px;
+}
+.single-post #primary #content {
+	margin-bottom:0;
+}
+.widget-area .widget {
+    -moz-hyphens:none; /* vÃ©rifier */
+    word-wrap:normal;
+	overflow:hidden;
+    margin-bottom: 20px;
+}
+
+/*
+Images
+*/
+.entry-content img, .comment-content img, .widget img, img.header-image, .author-avatar img, img.wp-post-image {
+    border-radius: 0;
+    box-shadow:none;
+}
+@media (max-width: 767px) {
+	img {
+		max-width:100%;
+	}
+}
+/*
+Contenu principal
+ */
+
+.entry-meta {
+	clear: both;
+}
+.entry-header {
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+}
+.entry-header img.wp-post-image {
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+}
+.entry-header .entry-title {
+	font-size: 20px;
+	font-size: 1.428571429rem;
+	line-height: 1.2;
+	font-weight: normal;
+}
+.entry-header .entry-title a {
+	text-decoration: none;
+}
+.entry-header .entry-format {
+	margin-top: 24px;
+	margin-top: 1.714285714rem;
+	font-weight: normal;
+}
+.entry-header .comments-link {
+	margin-top: 24px;
+	margin-top: 1.714285714rem;
+	font-size: 13px;
+	font-size: 0.928571429rem;
+	line-height: 1.846153846;
+	color: #757575;
+}
+.comments-link a,
+.entry-meta a {
+	color: #757575;
+}
+.comments-link a:hover,
+.entry-meta a:hover {
+	color: #21759b;
+}
+article.sticky .featured-post {
+	border-top: 4px double #ededed;
+	border-bottom: 4px double #ededed;
+	color: #757575;
+	font-size: 13px;
+	font-size: 0.928571429rem;
+	line-height: 3.692307692;
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+	text-align: center;
+}
+.entry-content,
+.entry-summary,
+.mu_register {
+	line-height: 1.714285714;
+}
+/*
+.entry-content h1,
+.comment-content h1,
+.entry-content h2,
+.comment-content h2,
+.entry-content h3,
+.comment-content h3,
+.entry-content h4,
+.comment-content h4,
+.entry-content h5,
+.comment-content h5,
+.entry-content h6,
+.comment-content h6 {
+	margin: 24px 0;
+	margin: 1.714285714rem 0;
+	line-height: 1.714285714;
+}
+*/
+.entry-content h1,
+.comment-content h1 {
+	font-size: 21px;
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+.entry-content h2,
+.comment-content h2,
+.mu_register h2 {
+	font-size: 18px;
+	font-size: 1.285714286rem;
+	line-height: 1.6;
+}
+.entry-content h3,
+.comment-content h3 {
+	font-size: 16px;
+	font-size: 1.142857143rem;
+	line-height: 1.846153846;
+}
+.entry-content h4,
+.comment-content h4 {
+	font-size: 14px;
+	font-size: 1rem;
+	line-height: 1.846153846;
+}
+.entry-content h5,
+.comment-content h5 {
+	font-size: 13px;
+	font-size: 0.928571429rem;
+	line-height: 1.846153846;
+}
+.entry-content h6,
+.comment-content h6 {
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 1.846153846;
+}
+.entry-content p,
+.entry-summary p,
+.comment-content p,
+.mu_register p {
+	margin: 0 0 24px;
+	margin: 0 0 1.714285714rem;
+	line-height: 1.714285714;
+}
+.entry-content ol,
+.comment-content ol,
+.entry-content ul,
+.comment-content ul,
+.mu_register ul {
+	margin: 0 0 24px;
+	margin: 0 0 1.714285714rem;
+	line-height: 1.714285714;
+}
+.entry-content ul ul,
+.comment-content ul ul,
+.entry-content ol ol,
+.comment-content ol ol,
+.entry-content ul ol,
+.comment-content ul ol,
+.entry-content ol ul,
+.comment-content ol ul {
+	margin-bottom: 0;
+}
+.entry-content ul,
+.comment-content ul,
+.mu_register ul {
+	list-style: disc outside;
+}
+.entry-content ol,
+.comment-content ol {
+	list-style: decimal outside;
+}
+.entry-content li,
+.comment-content li,
+.mu_register li {
+	margin: 0 0 0 36px;
+	margin: 0 0 0 2.571428571rem;
+}
+.entry-content blockquote,
+.comment-content blockquote {
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+	padding: 24px;
+	padding: 1.714285714rem;
+	font-style: italic;
+}
+.entry-content blockquote p:last-child,
+.comment-content blockquote p:last-child {
+	margin-bottom: 0;
+}
+.entry-content code,
+.comment-content code {
+	font-family: Consolas, Monaco, Lucida Console, monospace;
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 2;
+}
+.entry-content pre,
+.comment-content pre {
+	border: 1px solid #ededed;
+	color: #666;
+	font-family: Consolas, Monaco, Lucida Console, monospace;
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 1.714285714;
+	margin: 24px 0;
+	margin: 1.714285714rem 0;
+	overflow: auto;
+	padding: 24px;
+	padding: 1.714285714rem;
+}
+.entry-content pre code,
+.comment-content pre code {
+	display: block;
+}
+.entry-content abbr,
+.comment-content abbr,
+.entry-content dfn,
+.comment-content dfn,
+.entry-content acronym,
+.comment-content acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+.entry-content address,
+.comment-content address {
+	display: block;
+	line-height: 1.714285714;
+	margin: 0 0 24px;
+	margin: 0 0 1.714285714rem;
+}
+img.alignleft {
+	margin: 12px 24px 12px 0;
+	margin: 0.857142857rem 1.714285714rem 0.857142857rem 0;
+}
+img.alignright {
+	margin: 12px 0 12px 24px;
+	margin: 0.857142857rem 0 0.857142857rem 1.714285714rem;
+}
+img.aligncenter {
+	margin-top: 12px;
+	margin-top: 0.857142857rem;
+	margin-bottom: 12px;
+	margin-bottom: 0.857142857rem;
+}
+.entry-content embed,
+.entry-content iframe,
+.entry-content object,
+.entry-content video {
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+}
+.entry-content dl,
+.comment-content dl {
+	margin: 0 24px;
+	margin: 0 1.714285714rem;
+}
+.entry-content dt,
+.comment-content dt {
+	font-weight: bold;
+	line-height: 1.714285714;
+}
+.entry-content dd,
+.comment-content dd {
+	line-height: 1.714285714;
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+}
+.entry-content table,
+.comment-content table {
+	border-bottom: 1px solid #ededed;
+	color: #757575;
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 2;
+	margin: 0 0 24px;
+	margin: 0 0 1.714285714rem;
+	width: 100%;
+}
+.entry-content table caption,
+.comment-content table caption {
+	font-size: 16px;
+	font-size: 1.142857143rem;
+	margin: 24px 0;
+	margin: 1.714285714rem 0;
+}
+.entry-content td,
+.comment-content td {
+	border-top: 1px solid #ededed;
+	padding: 6px 10px 6px 0;
+}
+.site-content article {
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+.page-links {
+	clear: both;
+	line-height: 1.714285714;
+}
+footer.entry-meta {
+	margin-top: 24px;
+	margin-top: 1.714285714rem;
+	font-size: 13px;
+	font-size: 0.928571429rem;
+	line-height: 1.846153846;
+	color: #757575;
+}
+.single-author .entry-meta .by-author {
+	display: none;
+}
+.mu_register h2 {
+	color: #757575;
+	font-weight: normal;
+}
+.site-content nav {
+    clear: both;
+    display: block;
+    font-size: 11px;
+    line-height: 12px;
+    overflow: hidden;
+}
+.nav-previous, .previous-image {
+    float: left;
+    width: 50%;
+}
+.nav-next, .next-image {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
+/*
+Headings
+*/
+h1, h2, h3, h4 {
+	/* color: #E4312A; */
+	font-weight:normal;
+}
+h2, h3 {
+	margin: 0 0 10px 0;
+}
+
+h1.resultats {
+	font-size: 1.57143rem;
+	border:none;
+	/*margin-left:20px;
+	margin-bottom:20px;*/
+}
+.entry-content h1, .comment-content h1,
+.entry-content h2, .comment-content h2,
+.entry-content h3, .comment-content h3,
+.entry-content h4, .comment-content h4,
+.entry-content h5, .comment-content h5,
+.entry-content h6, .comment-content h6 {
+	/*
+	line-height: 1.71429;
+	margin: 1.71429rem 0;
+	*/
+}
+
+/*
+Tableaux
+*/
+th, td {
+	padding:5px;
+	/* font-size:13px; */ /* Pourquoi? */
+	vertical-align:top;
+	line-height:normal;
+	text-align:inherit;
+}
+th {
+	font-weight:bold;
+	/* font-size:11px; */
+}
+.impair {
+    background-color: #EDF4FE;
+}
+#thematiques-et-themes td {
+	/* vertical-align:top; */
+}
+#thematiques-et-themes h3 {
+	margin-top:0;
+}
+#suivi-par-responsables td {
+	/* font-size: 12px; */
+}
+/* ddo/suivi-ddo */
+#suivi-des-demandes {
+	font-size: 10px;
+	max-width: 100%;
+}
+#suivi-des-demandes tr:nth-child(even) {
+	background: #f9f6f1;
+}
+#suivi-des-demandes th {
+	font-size: 12px;
+	font-weight:bold;
+	text-align: center;
+}
+#suivi-des-demandes td {
+	/* border:none; */
+	word-wrap: break-word;
+}
+#suivi-des-demandes td.demandeur {
+	font-weight:bold;
+}
+#suivi-des-demandes td.donnees-nom {
+
+}
+#suivi-des-demandes td.date-demande {
+
+}
+#suivi-des-demandes td.donnees-description {
+	font-size: 12px;
+	line-height: 18px;
+	max-width: 200px;
+	width: 50%
+}
+#suivi-des-demandes td.etat {
+
+}
+#suivi-des-demandes td.responsable {
+
+}
+/* licence-2014 */
+.page-id-5636 table {
+
+}
+/*
+Listes
+
+ul#liste-articles li {
+	padding: 10px 10px 10px 0;
+}*/
+
+/*
+Plan du site
+*/
+#plan-de-site li {
+	margin: 10px 0 10px 20px;
+}
+#plan-de-site li li {
+	/* font-size: 12px; */
+}
+
+/*
+Liens
+*/
+div.entry-content a {
+	color: #1982D1 !important;
+}
+
+/*
+Page des rÃ©sultats de recherche
+*/
+.search .page-header {
+	margin-bottom:20px;
+}
+.search h3.entry-title {
+	font-size: 1.28571rem;
+    line-height: normal;
+}
+.search article {
+	border-bottom: 1px dotted #DDDDDD;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.search article#post-0 {
+	border:none;
+}
+
+/*
+Bloc de recherche
+
+#bloc-recherche {
+	background-color: #FFFFFF;
+    border-top: 4px solid #E4312A;
+	display:block;
+	height:100px;
+	margin-bottom:20px;
+	padding:20px;
+	position:relative;
+}
+#bloc-recherche form.search-form input {
+	font-size: 16px;
+    padding: 15px;
+	width: 575px;
+}
+#bloc-recherche .icon-search:before {
+    content: "";
+}
+#bloc-recherche .search-form .search-input.search-giant button i {
+    font-size: 28px;
+    width: 28px;
+}
+#bloc-recherche .search-form .search-input button i {
+    color: #E4312A;
+    transition: color 0.2s ease-in 0s;
+}
+#bloc-recherche .search-form .search-input button {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    cursor: pointer;
+    display: block;
+    padding: 0;
+    position: absolute;
+    right: 25px;
+    top: 30px;
+}
+#bloc-recherche .search-form .search-input button span {
+    display: none;
+}
+*/
+/*
+Modules (ou widgets) de style CKAN
+*/
+.widget-area .widget h3,
+h2.module-heading {
+    color: #E4312A;
+}
+.module-narrow .nav-item > a, .module-narrow .nav-aside li a {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+/* body.ckan .nav-simple > li, body.ckan .nav-aside > li */
+#secondary .widget ul.nav li.nav-item {
+    border-bottom: 1px dotted #DDDDDD;
+    padding: 0;
+}
+.widget-area .ckan-style a,
+.widget-area .ckan-style a:visited {
+    color: #000000;
+    display: block;
+    text-decoration: none;
+    /* width: 100%; */
+}
+ul.nav > li > a, ul.nav > li > a,
+.nav-item > a, .nav-aside li a {
+    color: #333333;
+    font-size: 12px;
+    line-height: 20px;
+	padding: 7px 20px;
+	font-size: 12px;
+    line-height: 1.16667em;
+}
+/*.nav > li > a:hover, .nav > li > a:focus */
+ul.nav > li > a:hover, ul.nav > li > a:focus {
+    background-color: #EEEEEE;
+    text-decoration: none;
+	color: #21759B;
+}
+/*
+#secondary .widget ul.nav li.nav-item a,
+body.ckan .module-narrow .nav-item > a, body.ckan .module-narrow .nav-aside li a {
+    padding: 0;
+    position: relative;
+}
+*/
+body.ckan .module-narrow .module-heading,
+.module-narrow .module-content,
+.module-narrow .module-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* Module Info */
+.context-info .module-content {
+    padding: 20px;
+}
+.context-info .follow_button {
+    margin: 0;
+}
+.context-info .follow_button a {
+    margin: 15px 0 0;
+}
+
+
+/* Modules des facettes : afficher le + */
+#thematiques li.nav-item a:hover {
+    background: #EEEEEE url('http://donnees.ville.montreal.qc.ca/portail/wp-content/themes/donneesouvertes3/images/ie/icon-hover-plus.jpg') no-repeat;
+	background-position: 270px center;
+}
+/*
+Actualites
+*/
+div.archives-donnees article,
+section.site-content article {
+	padding: 0;
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #DDDDDD;
+}
+section.site-content article h1,
+div.archives-donnees article h2 {
+	width:550px;
+	font-size:16px;
+	margin-bottom:5px;
+}
+div.archives-donnees article p.date-publication {
+	font-size:12px;
+	font-weight: bold;
+
+}
+/*
+Page(s) des applications
+*/
+/*
+body.page-template-page-templatesgalerie-applications-php .entry-content {
+	width:440px;
+	float:right;
+	overflow:hidden;
+	font-size:90%;
+}
+
+body.page-template-page-templatesgalerie-applications-php h2 {
+	margin-bottom:20px;
+}
+*/
+
+.catablog-navigation {
+	display:none;
+}
+#bloc-plateformes-et-suggestion {
+	/*font-size: 100%;
+     height: 100px; */
+}
+div#navigation-plateformes {
+	display:block;
+	width:100%;
+	clear:both;
+}
+div#navigation-plateformes ul.plateformes {
+    display: block;
+    list-style: none outside none;
+}
+div#navigation-plateformes ul.plateformes li {
+    border-right: 1px solid #000000;
+    color: #999999;
+    float: left;
+    padding: 0 5px;
+}
+div#navigation-plateformes ul.plateformes li:first-of-type {
+	padding-left: 0;
+}
+div#navigation-plateformes ul.plateformes li.dernier {
+	border-right:none;
+}
+a#suggestion-application {
+    margin: 20px 0 10px;
+}
+.application {
+	display: block;
+	padding: 0 0 60px 0;
+	position: relative;
+}
+.application .description {
+	font-size:12px;
+	/* width:480px; */
+	margin-left:120px;
+}
+/*
+.application .description p {
+	margin-bottom:10px;
+}
+*/
+.application .plateforme {
+	margin-top:20px;
+}
+.application h3.titre {
+	font-size:16px;
+	font-weight:normal;
+	margin:0;
+}
+.application h3.titre a {
+	color: #1982D1;
+}
+.imagette {
+	position:absolute;
+	left: 0px;
+	top: 0px;
+}
+/*
+Formulaires
+*/
+.required {
+    color: red;
+}
+div.wpcf7 label {
+	display:block;
+}
+span.wpcf7-list-item {
+    margin-left: 0;
+}
+div.avertissement {
+	background-color:#CCC;
+	padding:10px;
+	/* border: 1px solid #E4312A; */
+	margin-bottom:20px;
+}
+textarea#commentaire.wpcf7-form-control,
+textarea#description_application.wpcf7-form-control,
+div#wpcf7-f3966-p3967-o1.wpcf7 textarea {
+	width:100%;
+}
+div.newsletter-subscription table,
+div.newsletter-subscription table td {
+	border:none;
+}
+/*
+Page des fils RSS
+http://donnees.ville.montreal.qc.ca/portail/aide-et-entraide/fils-rss/
+*/
+ul.liste-fils-rss {
+	list-style-type: none;
+	list-style-position: inside;
+}
+.ie7 ul.liste-fils-rss {
+	list-style:square;
+}
+ul.liste-fils-rss li  {
+	margin:0;
+}
+.icon-rss-sign:before {
+	color:#F60;
+}
+
+/*
+Divers
+*/
+
+/* CopiÃ© depuis CKAN */
+.well {
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+}
+
+/* Demande(s) de donnÃ©es ouvertes */
+.une-demande h2 {
+	font-weight:normal;
+	margin:20px 0 10px;;
+	color:#E4312A;
+}
+
+/* Page 404 pleine page */
+.error404 h2 a:visited {
+	color: #1982D1;
+}
+.error404 input {
+
+}
+
+/* La barre d'amin Wordpress dÃ©croche du haut sous mobile */
+@media (max-width: 767px) {
+	#wpadminbar {
+		position: fixed;
+	}
+}

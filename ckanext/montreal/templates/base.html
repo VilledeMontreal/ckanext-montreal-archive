@@ -18,3 +18,12 @@ Code JS pour menu
 	{%- if self.subtitle()|trim %} {{ g.template_title_deliminater }} {% endif -%}
 	Portail données ouvertes
 {%- endblock -%}
+
+{% block styles %}
+	{{ super() }}
+	{% resource 'montreal/css/common.css' %}
+	{% resource 'montreal/css/ckan.css' %}
+	{% resource 'montreal/css/bootstrap.css' %}
+	{% resource 'montreal/css/style.css' %}
+	{% resource 'montreal/css/accueil.css' %}
+{% endblock %}
