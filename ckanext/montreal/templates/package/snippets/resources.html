@@ -1,0 +1,19 @@
+{#
+
+Pour enlever la balise <I> dans le H2, comme ailleurs.
+Troncature moins courte (43 plutôt que 25) des mots clés en colonne de gauche
+
+#}
+{% set resources = pkg.resources or [] %}
+{% if resources %}
+  <section class="module module-narrow resources">
+    <h2 class="module-heading">{{ _("Resources") }}</h2>
+    <ul class="unstyled nav nav-simple">
+      {% for resource in resources %}
+        <li class="nav-item{{ ' active' if active == resource.id }}">
+          {% link_for h.resource_display_name(resource)|truncate(43), controller='package', action=action or 'resource_read', id=pkg.name, resource_id=resource.id, inner_span=true %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

@@ -1,0 +1,13 @@
+{% ckan_extends %}
+
+{% block primary_content %}
+<div class="module">
+
+    {{ super() }}
+    {# base sur la page http://docs.ckan.org/en/latest/theming/css.html #}
+    <link rel="stylesheet" href="/logout.css" />
+        <hr>
+        <a class="btn btn-primary logout-btn-vers-login-btn" href="/user">Se connecter</a>
+
+</section>
+{% endblock %}

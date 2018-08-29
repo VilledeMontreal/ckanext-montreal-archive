@@ -1,0 +1,31 @@
+{# 
+
+Rend conditionnel l'affichage de la barre d'outils
+
+Le fil d'Ariane (breadcrump) ne s'affiche qu'en mode connecté
+
+Enlevé l'avertissement' "Beta"
+
+#}
+
+{% ckan_extends %}
+
+{%- block header %}
+	{% if c.userobj %}
+		{% include "header.html" %}
+	{% endif %}
+  <div class="container"­>
+	{{ h.snippet('snippets/menu_portail.html') }}
+  </div>
+{% endblock -%}
+
+{% block breadcrumb %}
+  {% if c.userobj %}
+    {% if self.breadcrumb_content() | trim %}
+      <ol class="breadcrumb">
+        {% snippet 'snippets/home_breadcrumb_item.html' %}
+        {% block breadcrumb_content %}{% endblock %}
+      </ol>
+    {% endif %}
+  {% endif %}
+{% endblock %}

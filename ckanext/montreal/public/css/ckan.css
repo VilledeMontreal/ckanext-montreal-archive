@@ -1,0 +1,1077 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+	Structure
+	Headings
+	Pastilles aux couleurs des thématiques
+	Page d'erreur 404
+	Liens
+	Thématiques, organisation et éléments liés : tout ce qui était sous forme de briques Masonry
+	Liste des ressources
+	Divers
+	Pour IE 7 & 8
+*/
+
+/*
+Structure
+*/
+
+body.ckan {
+	background-color:#E6E2DB;
+	background-image:none;
+}
+@media (max-width: 767px) {
+	body.ckan {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	body.ckan header.masthead {
+		display:none;
+	}
+}
+body.ckan #preheader,
+body.ckan #masthead,
+body.ckan [role="main"],
+body.ckan #content,
+body.ckan #colophon {
+	margin-left:auto;
+	margin-right:auto;
+}
+body.ckan #preheader,
+body.ckan #masthead,
+body.ckan [role="main"],
+body.ckan #content {
+	/* width:960px; */
+}
+body.ckan #colophon {
+	/*
+	max-width:920px;
+	margin-top:20px;
+
+	width: 100%;*/
+}
+body.ckan [role="main"], body.ckan .main {
+    background: none; /* possiblement ajouter un backgroung blanc et gris répété en y */
+    padding-bottom: 0;
+    padding-top: 0;
+    position: relative;
+}
+body.ckan .wrapper {
+    background: none;
+    border: none;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+	margin:0;
+    position: relative;
+}
+body.ckan [role="main"] .primary {
+	float: right;
+	/*
+	width:650px;
+	*/
+}
+body.ckan [role="main"] .secondary {
+    /*
+	float: left;
+    width: 290px;
+	*/
+}
+body.ckan .module {
+    margin: 0;
+	background-color:#FFFFFF;
+	border-top: 4px solid #E4312A;
+	margin-bottom: 20px;
+}
+
+body.ckan .toolbar {
+	padding:0;
+	margin:0;
+}
+body.ckan div.module-content {
+	padding: 20px; /* s'applique pas mal partout! */
+}
+body.ckan .archive-header,
+body.ckan .page-header {
+	margin-bottom: 0;
+}
+
+body.ckan section.additionnal h3 {
+	font-size: 1.28571rem;
+}
+body.ckan .module-resource .actions {
+    right: -10px; /* pour respecter le contour de 20 px de la grille du design original */
+}
+/*
+body.ckan .primary > *:last-child,
+body.ckan .secondary > *:last-child {
+    margin-bottom: 0;
+}
+*/
+body.ckan .archive-header,
+body.ckan .page-header {
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+body.ckan .span9 .page-header {
+    margin-left: 0;
+}
+/*
+Headings
+*/
+body.ckan h1, body.ckan h2, body.ckan h3, body.ckan h4 {
+    line-height:normal;
+}
+body.ckan div.module-content h1 {
+	font-size: 1.57143rem;
+}
+/*
+body.ckan h2 {
+	font-size: 1.28571rem;
+	line-height: 1.6;
+}
+*/
+body.ckan div.module-content h3 {
+	/*font-size: 1.28571rem;
+
+	line-height: 1.6;
+	font-size: 1.14286rem;
+    line-height: 1.84615;
+	*/
+
+}
+
+/*
+Modules des facettes
+*/
+ul.nav > li > a,
+.nav-item > a,
+.nav-aside li a {
+    color: #333333;
+    font-size: 12px;
+    line-height: 1.16667em;
+    padding: 7px 20px;
+	word-wrap: break-word;
+}
+h2.module-heading {
+    color: #E4312A;
+}
+
+/*
+Page d'erreur 404
+*/
+body.ckan .erreur h1 {
+	font-size: 1.57143rem;
+	margin-bottom:0;
+	padding:20px;
+}
+body.ckan .erreur .module-content {
+	margin-top:0;
+	padding-top:0;
+}
+body.ckan .erreur h2 {
+	font-size: 1.28571rem;
+    line-height: 1.6;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+body.ckan .erreur .search-form {
+    border:none;
+    margin:0;
+    padding:0;
+}
+body.ckan .erreur button,
+body.ckan .erreur input,
+body.ckan .erreur textarea {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    font-family: inherit;
+	margin-bottom:0;
+}
+body.ckan .erreur input[type="text"] {
+	width:192px;
+}
+/*
+body.ckan .erreur button[type="submit"],
+body.ckan .erreur input[type="submit"] {
+	height:26px;
+	width:108px;
+	padding:4px 12px;
+}
+*/
+/*
+Pastilles aux couleurs des thématiques
+*/
+/*
+'agriculture-alimentation' => array( 'couleur' => '#00AEEF'),
+'economie-entreprises' => array( 'couleur' => '#006837'),
+'education-recherche' => array( 'couleur' => '#003366'),
+'environnement-ressources-naturelles-energie'  => array( 'couleur' => '#8cc63e'),
+'gouvernement-finances' => array( 'couleur' => '#0071BC'),
+'infrastructures'  => array( 'couleur' => '#603814'),
+'loi-justice-securite-publique'  => array( 'couleur' => '#FBB03B'),
+'politiques-sociales' => array( 'couleur' => '#670001'),
+'sante' => array( 'couleur' => '#333333'),
+'societe-culture'  => array( 'couleur' => '#22B573'),
+'tourisme-sports-loisirs'  => array( 'couleur' => '#EC1C28'),
+'transport' => array( 'couleur' => '#FFCC33')
+*/
+body.ckan div.filter-list div.groups span.agriculture-alimentation {
+	background-color: #00AEEF;
+}
+body.ckan div.filter-list div.groups span.economie-entreprises {
+	background-color: #006837 ;
+}
+body.ckan div.filter-list div.groups span.education-recherche {
+	background-color: #003366;
+}
+body.ckan div.filter-list div.groups span.environnement-ressources-naturelles-energie {
+	background-color: #8cc63e;
+}
+body.ckan div.filter-list div.groups span.gouvernement-finances {
+	background-color: #0071BC;
+}
+body.ckan div.filter-list div.groups span.infrastructures {
+	background-color: #603814;
+}
+body.ckan div.filter-list div.groups span.loi-justice-securite-publique {
+	background-color: #FBB03B;
+}
+body.ckan div.filter-list div.groups span.politiques-sociales {
+	background-color: #670001;
+}
+body.ckan div.filter-list div.groups span.sante {
+	background-color: #333333;
+}
+body.ckan div.filter-list div.groups span.societe-culture {
+	background-color: #22B573;
+}
+body.ckan div.filter-list div.groups span.tourisme-sports-loisirs {
+	background-color: #EC1C28;
+}
+body.ckan div.filter-list div.groups span.transport {
+	background-color: #FFCC33;
+}
+/*
+Liens
+*/
+body.ckan .dataset-heading a ,
+body.ckan .resource-item a.heading {
+	color: #1982D1;
+}
+body.ckan .resource-item a.heading  {
+	display:block;
+	max-width:85%;
+}
+@media only screen and ( min-width: 980px ) {
+	body.ckan .resource-item a.heading  {
+		width:470px;
+	}
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	body.ckan .resource-item a.heading  {
+		width:315px;
+	}
+}
+body.ckan .label, .badge {
+	text-shadow:none;
+}
+body.ckan a:hover, a:focus {
+    text-decoration: none;
+}
+/*
+Gros boutons
+*/
+a.btn-primary {
+	/* background-color: #e6e6e6; */
+}
+.page-header .content_action {
+    /*position: absolute;
+    right: 5px;
+    top: -35px; */
+}
+.page-header .content_action a {
+	background-color: #f7f7f7;
+}
+.btn-primary.dropdown-toggle span.caret {
+	border-top-color: #333333;
+}
+.btn-primary.dropdown-toggle:hover .caret, .btn-primary.dropdown-toggle:focus .caret {
+	border-top-color: #FFFFFF;
+}
+/*
+Thématiques, organisation et éléments liés : tout ce qui était sous forme de briques Masonry
+*/
+a.media-view {
+	border-radius:0;
+}
+ul.not-a-media-grid {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul.not-a-media-grid .media-item {
+	float:none;
+	margin: 15px 0 0 0;
+	width:auto;
+}
+ul.not-a-media-grid.groups .media-item {
+	min-height:133px;
+}
+ul.not-a-media-grid .media-image {
+	border-radius:0;
+	float:left;
+         /*Felipe Cordova*/
+        /*height:133px;*/
+	margin-right:15px;
+	width:133px;
+}
+ul.not-a-media-grid .media-heading,
+ul.not-a-media-grid .description,
+ul.not-a-media-grid .count,
+ul.not-a-media-grid h2.related-type {
+	display:block;
+	/* margin-left: 120px; */
+}
+ul.not-a-media-grid.related h2 {
+	font-weight:bold;
+}
+ul.not-a-media-grid h3 {
+	color: #1982d1;
+	font-size: 16px;
+}
+ul.not-a-media-grid li:hover h3 {
+	/* text-decoration:underline; */
+}
+.groups .description ul {
+	margin:0;
+	padding:0;
+}
+.groups .description ul li {
+	display:inline-block;
+	font-size:12px;
+}
+h2.related-type {
+	margin:0;
+	font-size:12px;
+}
+div.related-type-icon {
+	/*
+	display:block;
+	height:100px;
+	width:100px;
+	float:left;
+	background-color:#E6E2DB;
+	*/
+	display:none;
+}
+.resource-item .btn-primary i.icon-share-alt {
+
+}
+/*
+Saisie d'une fiche
+*/
+.stages {
+    margin: -20px -20px 20px;
+}
+.stages li .highlight {
+	width:auto;
+	line-height: 12px;
+}
+/*
+Formats
+*/
+.resource-item {
+	padding: 10px 10px 10px 90px;
+}
+.resource-item .heading {
+	font-weight:normal;
+}
+.resource-item .btn-primary i.icon-share-alt {
+	display:none;
+}
+.resource-item .format-label {
+	background-image:none;
+	background-color: #999999;
+	border-radius: 3px;
+	color:#ffffff;
+	font-size:14px;
+	font-weight:bold;
+	height:16px;
+	line-height: 14px;
+	text-align:center;
+	text-indent:0;
+	text-transform:uppercase;
+	top:15px;
+	padding: 2px 10px 1px;
+	/* right: 550px; */
+	left:10px;
+	width:50px;
+}
+.ie.ie7 body.ckan .resource-item a.heading .format-label{
+	left:-85px;
+	top:5px;
+}
+/*
+.format-label[data-format=html],
+.format-label[data-format*=html],
+.format-label[data-format=json],
+.format-label[data-format*=json],
+.format-label[data-format=geojson],
+.format-label[data-format*=geojson]
+.format-label[data-format=xml],
+.format-label[data-format*=xml],
+.format-label[data-format=text],
+.format-label[data-format*=text],
+.format-label[data-format=csv],
+.format-label[data-format*=csv],
+.format-label[data-format=xls],
+.format-label[data-format*=xls],
+.format-label[data-format=zip],
+.format-label[data-format*=zip],
+.format-label[data-format=api],
+.format-label[data-format*=api],
+.format-label[data-format=pdf],
+.format-label[data-format*=pdf],
+.format-label[data-format=rdf],
+.format-label[data-format*=rdf],
+.format-label[data-format*=nquad],
+.format-label[data-format*=ntriples],
+.format-label[data-format*=turtle] {
+	height:16px;
+	width: auto;
+}
+*/
+.format-label[data-format=geojson],
+.format-label[data-format*=geojson] {
+	font-size:12px;
+	/*padding: 3px 11px 1px 8px;*/
+	padding: 3px 14px 1px 7px;
+}
+.ie9 .format-label[data-format=geojson],
+.ie9 .format-label[data-format*=geojson] {
+	font-size:12px;
+	padding: 3px 15px 1px 4px;
+}
+/*
+.format-label[data-format=html],
+.format-label[data-format*=html] {
+	background-color:#55a1ce
+}
+.format-label[data-format=json],
+.format-label[data-format*=json] {
+	background-color:#ef7100
+}
+
+.format-label[data-format=xml],
+.format-label[data-format*=xml] {
+	background-color:#ef7100
+}
+.format-label[data-format=text],
+.format-label[data-format*=text] {
+	background-color:#74cbec
+}
+.format-label[data-format=csv],
+.format-label[data-format*=csv] {
+	background-color:#dfb100
+}
+.format-label[data-format=xls],
+.format-label[data-format*=xls],
+.format-label[data-format=xlsx],
+.format-label[data-format*=xlsx] {
+	background-color:#2db55d
+}
+.format-label[data-format=zip],
+.format-label[data-format*=zip],
+.format-label[data-format=zip],
+.format-label[data-format*=zip] {
+	background-color:#686868;
+}
+.format-label[data-format=api],
+.format-label[data-format*=api] {
+	background-color:#ec96be
+}
+.format-label[data-format=pdf],
+.format-label[data-format*=pdf] {
+	background-color:#e0051e;
+}
+.format-label[data-format=kml],
+.format-label[data-format*=kml],
+.label[data-format=kml],
+.label[data-format*=kml],
+.format-label[data-format=kmz],
+.format-label[data-format*=kmz],
+.label[data-format=kmz],
+.label[data-format*=kmz] {
+	background-color:#3868D4;
+}
+.format-label[data-format=tab],
+.format-label[data-format*=tab],
+.label[data-format=tab],
+.label[data-format*=tab] {
+	background-color:#59075B;
+}
+
+.format-label[data-format=gml],
+.format-label[data-format*=gml],
+.label[data-format=gml],
+.label[data-format*=gml] {
+	background-color:#3B9CBF;
+}
+.format-label[data-format=shp],
+.format-label[data-format*=shp],
+.label[data-format=shp],
+.label[data-format*=shp]  {
+	background-color:#50A852
+}
+.format-label[data-format=flv],
+.format-label[data-format*=flv],
+.label[data-format=flv],
+.label[data-format*=flv]  {
+	background-color:#8E212A;
+}
+.format-label[data-format=ods],
+.format-label[data-format*=ods],
+.label[data-format=ods],
+.label[data-format*=ods]  {
+	background-color:#9FBD07;
+}
+.format-label[data-format=odp],
+.format-label[data-format*=odp],
+.label[data-format=odp],
+.label[data-format*=odp]  {
+	background-color:#E39451;
+}
+.format-label[data-format=png],
+.format-label[data-format*=png],
+.label[data-format=png],
+.label[data-format*=png]  {
+	background-color:#EFB223;
+}
+.format-label[data-format=odt],
+.format-label[data-format*=odt],
+.label[data-format=odt],
+.label[data-format*=odt]  {
+	background-color:#8AAABE;
+}
+.format-label[data-format=mm],
+.format-label[data-format*=mm],
+.label[data-format=mm],
+.label[data-format*=mm]  {
+	background-color:#FC8C1E;
+}
+.format-label[data-format=doc],
+.format-label[data-format*=doc],
+.label[data-format=doc],
+.label[data-format*=doc],
+.format-label[data-format=docx],
+.format-label[data-format*=docx],
+.label[data-format=docx],
+.label[data-format*=docx]  {
+	background-color:#145A98;
+}
+.format-label[data-format=xls],
+.format-label[data-format*=xls],
+.label[data-format=xls],
+.label[data-format*=xls],
+.format-label[data-format=xlsx],
+.format-label[data-format*=xlsx],
+.label[data-format=xlsx],
+.label[data-format*=xlsx]  {
+	background-color:#6CBD57;
+}
+.format-label[data-format=ppt],
+.format-label[data-format*=ppt],
+.label[data-format=ppt],
+.label[data-format*=ppt],
+.format-label[data-format=pptx],
+.format-label[data-format*=pptx],
+.label[data-format=pptx],
+.label[data-format*=pptx]  {
+	background-color:#E5772C;
+}
+.format-label[data-format=rdf],
+.format-label[data-format*=rdf],
+.format-label[data-format*=nquad],
+.format-label[data-format*=ntriples],
+.format-label[data-format*=turtle] {
+	background-color:#0b4498
+}*/
+
+/* DÉBUT Nouvelles couleurs de label*/
+.format-label[data-format=dm],
+.format-label[data-format*=dm],
+.label[data-format=dm],
+.label[data-format*=dm]  {
+	background-color:#8aaabe;
+}
+.format-label[data-format=kml],
+.format-label[data-format*=kml],
+.label[data-format=kml],
+.label[data-format*=kml] {
+	background-color:#3868d4;
+}
+.format-label[data-format=geojson],
+.format-label[data-format*=geojson],
+.label[data-format=geojson],
+.label[data-format*=geojson] {
+	background-color:#5d86db;
+}
+.format-label[data-format=kmz],
+.format-label[data-format*=kmz],
+.label[data-format=kmz],
+.label[data-format*=kmz] {
+	background-color:#0b4498;
+}
+.format-label[data-format=gml],
+.format-label[data-format*=gml],
+.label[data-format=gml],
+.label[data-format*=gml] {
+	background-color:#15284D;
+}
+.format-label[data-format=shp],
+.format-label[data-format*=shp],
+.label[data-format=shp],
+.label[data-format*=shp]  {
+	background-color:#81a1e3;
+}
+.format-label[data-format=wfs],
+.format-label[data-format*=wfs],
+.label[data-format=wfs],
+.label[data-format*=wfs]  {
+	background-color:#34495e;
+}
+
+
+.format-label[data-format=wms],
+.format-label[data-format*=wms],
+.label[data-format=wms],
+.label[data-format*=wms]  {
+	background-color:#145a98;
+}
+.format-label[data-format=dxf],
+.format-label[data-format*=dxf],
+.label[data-format=dxf],
+.label[data-format*=dxf]  {
+	background-color:#74cbec;
+}
+.format-label[data-format=dwg],
+.format-label[data-format*=dwg],
+.label[data-format=dwg],
+.label[data-format*=dwg]  {
+	background-color:#7ac1da;
+}
+.format-label[data-format=dgn],
+.format-label[data-format*=dgn],
+.label[data-format=dgn],
+.label[data-format*=dgn]  {
+	background-color:#3b9cbf;
+}
+
+
+.format-label[data-format=zip],
+.format-label[data-format*=zip],
+.label[data-format=zip],
+.label[data-format*=zip],
+.format-label[data-format=laz],
+.format-label[data-format*=laz],
+.label[data-format=laz],
+.label[data-format*=laz] {
+	background-color:#50a852;
+}
+.format-label[data-format=flv],
+.format-label[data-format*=flv],
+.label[data-format=flv],
+.label[data-format*=flv]  {
+	background-color:#6cbd57;
+}
+.format-label[data-format=png],
+.format-label[data-format*=png],
+.label[data-format=png],
+.label[data-format*=png],
+.format-label[data-format=jpeg],
+.format-label[data-format*=jpeg],
+.label[data-format=jpeg],
+.label[data-format*=jpeg],
+.format-label[data-format=tiff],
+.format-label[data-format*=tiff],
+.label[data-format=tiff],
+.label[data-format*=tiff] {
+	background-color:#9fbd07;
+}
+
+
+.format-label[data-format=text],
+.format-label[data-format*=text],
+.label[data-format=text],
+.label[data-format*=text],
+.format-label[data-format=rtf],
+.format-label[data-format*=rtf],
+.label[data-format=rtf],
+.label[data-format*=rtf] {
+	background-color:#8e212a;
+}
+.format-label[data-format=pdf],
+.format-label[data-format*=pdf],
+.label[data-format=pdf],
+.label[data-format*=pdf] {
+	background-color:#e0051e;
+}
+.format-label[data-format=doc],
+.format-label[data-format*=doc],
+.label[data-format=doc],
+.label[data-format*=doc],
+.format-label[data-format=docx],
+.format-label[data-format*=docx],
+.label[data-format=docx],
+.label[data-format*=docx],
+.format-label[data-format=odt],
+.format-label[data-format*=odt],
+.label[data-format=odt],
+.label[data-format*=odt]  {
+	background-color:#ec96be;
+}
+.format-label[data-format=ppt],
+.format-label[data-format*=ppt],
+.label[data-format=ppt],
+.label[data-format*=ppt],
+.format-label[data-format=pptx],
+.format-label[data-format*=pptx],
+.label[data-format=pptx],
+.label[data-format*=pptx],
+.format-label[data-format=odp],
+.format-label[data-format*=odp],
+.label[data-format=odp],
+.label[data-format*=odp] {
+	background-color:#ea4c88;
+}
+
+
+.format-label[data-format=csv],
+.format-label[data-format*=csv],
+.label[data-format=csv],
+.label[data-format*=csv] {
+	background-color:#59075b;
+}
+.format-label[data-format=tab],
+.format-label[data-format*=tab],
+.label[data-format=tab],
+.label[data-format*=tab],
+.format-label[data-format=tsv],
+.format-label[data-format*=tsv],
+.label[data-format=tsv],
+.label[data-format*=tsv] {
+	background-color:#8d75c6;
+}
+.format-label[data-format=xls],
+.format-label[data-format*=xls],
+.label[data-format=xls],
+.label[data-format*=xls],
+.format-label[data-format=xlsx],
+.format-label[data-format*=xlsx],
+.label[data-format=xlsx],
+.label[data-format*=xlsx],
+.format-label[data-format=ods],
+.format-label[data-format*=ods],
+.label[data-format=ods],
+.label[data-format*=ods]  {
+	background-color:#af2897;
+}
+
+
+.format-label[data-format=html],
+.format-label[data-format*=html],
+.label[data-format=html],
+.label[data-format*=html] {
+	background-color:#efb223;
+}
+.format-label[data-format=json],
+.label[data-format=json],
+.format-label[data-format=xml],
+.format-label[data-format*=xml],
+.label[data-format=xml],
+.label[data-format*=xml] {
+	background-color:#ef7100;
+}
+.format-label[data-format=api],
+.format-label[data-format*=api],
+.label[data-format=api],
+.label[data-format*=api],
+.format-label[data-format=xsl],
+.format-label[data-format*=xsl],
+.label[data-format=xsl],
+.label[data-format*=xsl] {
+	background-color:#dfb100;
+}
+.format-label[data-format=rdf],
+.format-label[data-format*=rdf],
+.label[data-format=rdf],
+.label[data-format*=rdf],
+.format-label[data-format=gtfs],
+.format-label[data-format*=gtfs],
+.label[data-format=gtfs],
+.label[data-format*=gtfs],
+.format-label[data-format*=nquad],
+.format-label[data-format*=ntriples],
+.format-label[data-format*=turtle],
+.format-label[data-format=mm],
+.format-label[data-format*=mm],
+.label[data-format=mm],
+.label[data-format*=mm] {
+	background-color:#f39c12;
+}
+/* FIN Nouvelles couleurs de label*/
+
+/*
+Divers
+*/
+/* Accueil CKAN */
+/*
+html.js body.ckan div.homepage.layout-3 div div.container div.row.row2 {
+	margin-bottom: 100px;
+}
+.homepage .container .box .featured,
+.homepage .container div.row.row2 div.span6.col1 div.box.stats div.inner h3 {
+	display:none;
+}
+*/
+.homepage.layout-1 .row1 .col2 {
+    position: relative;
+}
+
+/* Breadcrump */
+.toolbar {
+	top:-10px;
+	position: relative;
+}
+/* Pour enlever le fond gris-bleu des pages Groupes et Organisations */
+body.ckan .media-grid {
+	background:none;
+	border-style:none;
+}
+body.ckan section {
+	margin-top:20px;
+}
+body.ckan p {
+	margin: 0 0 10px;
+	/* line-height: normal; */ /* Plus nécessaire après séparation des feuilles de style? */
+}
+/* Pour que les champs de formulaires les plus larges ne débordent pas */
+body.ckan .control-full .select2-container {
+    width: 480px !important;
+}
+body.ckan .nav-item.active > a:before, .nav-aside li.active a:before {
+    background-image: none;
+}
+/* Pour uniformiser l'affichage des formats */
+body.ckan section.res_format li.nav-item a,
+body.ckan .dataset-resources li a {
+	text-transform:uppercase;
+}
+
+/* Informations additionnelles */
+body.ckan thead th {
+	color:#E4312A;
+	background-color:#F2F2F2;
+}
+/* La petite ligne en haut des formulaire me gosse */
+.form-actions {
+	border-top: none;
+}
+/* Flux d'activité */
+.activity .item p {
+    margin: 5px 0 0 50px;
+}
+.activity .item .actor .gravatar {
+	display:none;
+}
+/* Case de gauche décrivant l'organisation Ville de Montréal */
+html.js body.ckan div div#content.container div.wrapper aside.secondary div.module.module-narrow.module-shallow.context-info section.module-content p a {
+	display:none;
+}
+.context-info .nums dl {
+    color: #444444;
+    float: left;
+    margin: 5px 20px 0 0;
+}
+.context-info .nums dl:first-child {
+	display:none;
+}
+/* Pagination */
+.module-content .pagination {
+    margin: 0;
+}
+/*
+Pour IE 7 & 8
+*/
+/* Structure */
+.ie body.ckan .primary {
+    	/*width:650px;*/
+	/*felipe cordova 2017-05-26*/
+    	width:700px;
+}
+/*felipe cordova 2017-05-26*/
+.ie body.ckan .primary .search-form .control-order-by {
+    float: right;
+    margin-left: 15px;
+}
+.ie body.ckan UL.groups.not-a-media-grid .media-item{
+	width:auto !important;
+}
+/* Menu principal */
+.ie body.ckan .main-navigation ul.nav-menu,
+.ie body.ckan .main-navigation div.nav-menu > ul {
+	border-bottom: 1px solid #ededed;
+	border-top: 1px solid #ededed;
+	display: inline-block !important;
+	text-align: left;
+	width: 100%;
+}
+.ie body.ckan .main-navigation ul {
+	margin: 0;
+	text-indent: 0;
+	position:relative;
+	z-index:1;
+}
+.ie body.ckan .main-navigation .assistive-text {
+	display:none;
+}
+.ie body.ckan .main-navigation li a,
+.ie body.ckan .main-navigation li {
+	display: inline-block;
+	text-decoration: none;
+}
+.ie7 body.ckan .main-navigation li a,
+.ie7 body.ckan .main-navigation li {
+	display: inline;
+}
+
+.ie body.ckan .main-navigation li a {
+	border-bottom: 0;
+	line-height: 3.692307692;
+	padding: 0 20px;
+	text-transform:none;
+	margin:0;
+}
+
+/*
+.ie body.ckan .main-navigation li a:hover {
+	color: #000;
+}
+.main-navigation li a:hover,
+.main-navigation li ul li a:hover {
+	background-color:#E4312A;
+	color:#FFFFFF;
+}
+*/
+.ie .main-navigation li {
+	margin: 0 0 0 0;
+	position: relative;
+}
+.ie body.ckan .main-navigation li ul {
+	display: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	z-index: 1;
+}
+.ie7 body.ckan .main-navigation li ul {
+	left: 0;
+}
+.ie body.ckan .main-navigation li ul ul,
+.ie7 body.ckan .main-navigation li ul ul {
+	top: 0;
+	left: 100%;
+}
+.ie body.ckan .main-navigation ul li:hover > ul {
+	border-left: 0;
+	display: block;
+}
+.ie body.ckan .main-navigation li ul li a {
+	/*background: #efefef;
+	border-bottom: 1px solid #ededed;*/
+	display: block;
+	font-size: 11px;
+	line-height: 2.181818182;
+	padding: 8px 10px;
+	width: 180px;
+}
+.ie body.ckan .main-navigation .current-menu-item > a,
+.ie body.ckan .main-navigation .current-menu-ancestor > a,
+.ie body.ckan .main-navigation .current_page_item > a,
+.ie body.ckan .main-navigation .current_page_ancestor > a {
+	color: #636363;
+	font-weight: bold;
+}
+.ie body.ckan .menu-toggle {
+	display: none;
+}
+/*
+.ie body.ckan .entry-header .entry-title {
+	font-size: 22px;
+}
+*/
+/* Modules des facettes : afficher le X et le + dans IE7 */
+html.ie7 body.ckan div div#content.container div.wrapper aside.secondary section.module h2.module-heading a.action {
+	top:5px;
+}
+html.ie7 body.ckan div div#content.container div.wrapper aside.secondary section.module nav ul.unstyled li.nav-item a:hover {
+    background: #EEEEEE url('../images/ie/icon-hover-plus.jpg') no-repeat;
+	background-position: 270px center;
+}
+html.ie7 body.ckan div div#content.container div.wrapper aside.secondary section.module nav ul.unstyled li.nav-item.active a {
+	background: #8ca0a6 url('../images/ie/icon-active-x.jpg') no-repeat;
+	background-position: 270px center;
+}
+/* Page groupes */
+.ie body.ckan li.media-item {
+	width: 187px;
+}
+/* Page Ensemble de données */
+.ie body.ckan div.module-content h3 {
+	font-size: 16px;
+	display: block;
+}
+.ie ul.tag-list {
+	display:block;
+	width:590px;
+}
+/* Licence */
+.ie img.cc-by,
+.ie9 img.cc-by {
+	height:15px;
+	width:80px;
+}
+#license-disclaimer,
+.form-actions .action-info.small {
+	clear:both;
+	display:block;
+	margin-bottom: 20px;
+	width: auto;
+}
+/* Temporaire : un Disqus de trop
+body.ckan article.module .module-content div.disqus-comments {
+	background-color: #444444;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: -40px;
+}
+body.ckan #module-commentaires div.module-content.disqus-comments {
+	display: none;
+}*/
+/* Patch pour masquer l'icône de cadenas dans le titre du module Licence */
+body.ckan aside.secondary.span3 section.module.license h2.module-heading i.icon-medium.icon-lock {
+	display: none;
+}
+/*patch pour faire disparaître le lien vers linkedin*/
+section.module.module-narrow.social ul.nav.nav-simple li.nav-item{
+	display:none;
+	/*étant donnée qu'en css on peut pas pointer vers le parent d'un élément, on fait tous disparaître et en suite dans scripts.js on fait apparapitre tous sauf celui de linkedin*/
+}
+#icolinkedin{display:none;}
+.ie7 .controls .info-block{
+	position:relative;
+}

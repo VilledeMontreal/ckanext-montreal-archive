@@ -1,0 +1,44 @@
+{# 
+
+Bloc "package_info" vidé
+
+Bloc "package_organization" vidé
+
+#}
+
+{% ckan_extends %}
+
+{% block secondary_content %}
+
+  {% block secondary_help_content %}{% endblock %}
+
+  {% block package_info %}{% endblock %}
+
+  {% block package_organization %}{% endblock %}
+
+  {% block package_groups %}
+    {% if pkg.groups %}
+      <div class="module module-narrow">
+        <h2 class="module-heading">{{ _('Groups') }}</h2>
+        <ul class="nav nav-simple">
+          {% for group in pkg.groups %}
+            <li class="nav-item">
+              <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                {{ group.title or group.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block package_social %}
+    {% snippet "snippets/social.html" %}
+  {% endblock %}
+
+  {% block package_license %}
+    {% snippet "snippets/license.html", pkg_dict=pkg %}
+  {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{#
+
+Simplement ajouté la classe "ckan" à la balise BODY afin d'avoir un meilleur contrôle par CSS
+
+Le titre (title) du site est harcodé.
+
+Code Google Analytics
+Code JS pour menu
+
+#}
+
+{% ckan_extends %}
+
+{% block bodytag %} class="ckan" data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %}
+
+{%- block title -%}
+	{%- block subtitle %}{% endblock -%}
+	{%- if self.subtitle()|trim %} {{ g.template_title_deliminater }} {% endif -%}
+	Portail données ouvertes
+{%- endblock -%}

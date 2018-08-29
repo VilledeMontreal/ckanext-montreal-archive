@@ -1,0 +1,59 @@
+{% extends "package/read.html" %}
+
+{%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
+
+{% block package_notes %}
+  {%- if not dataset_type -%}
+    <p>
+    dataset_type not passed to template. your version of CKAN
+    might not be compatible with ckanext-scheming
+    </p>
+  {%- endif -%}
+  {% if h.scheming_field_by_name(schema.dataset_fields, 'notes') and
+    pkg.notes%}
+    <div class="notes embedded-content">
+      {{ h.render_markdown(pkg.notes) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block package_tags %}
+  {% if pkg.methodologie %}
+  <section id="methodologie">
+    <h3>{{ _('Méthodologie') }}</h3>
+    {{ h.render_markdown(pkg.methodologie) }}
+  </section>
+  {% endif %}
+
+  {%- for field in schema.dataset_fields -%}
+      {%- if field.field_name not in exclude_fields -%}
+            {% if pkg[field.field_name] and field.field_name == 'territoire' and c.action != 'edit' %}
+              <section id="territoires">
+                <h3>{{ _('Territoires') }}</h3>
+                  {%- snippet 'scheming/snippets/display_field.html',
+                    field=field, data=pkg, schema=schema -%}
+              </section>
+
+            {% endif %}
+      {%- endif -%}
+  {%- endfor -%}
+
+  {% snippet "package/snippets/tags.html", tags=pkg.tags %}
+
+{% endblock %}
+
+{% block package_additional_info %}
+  {% snippet "scheming/package/snippets/additional_info.html",
+    pkg_dict=pkg, dataset_type=dataset_type, schema=schema %}
+{% endblock %}
+
+{% block disqus_comments %}
+  <div id="module-commentaires" style="margin-bottom:-20px; margin-left:-20px; margin-right:-20px;">
+    <div class="avertissement-disqus">
+      <h3>Commentaires</h3>
+      <p>Ce site utilise un service de gestion des commentaires externe et privé, <a href="http://help.disqus.com/customer/portal/articles/466259-privacy-policy">Disqus</a> [en anglais].</p>
+      <p>Lire également notre page : <a href="http://donnees.ville.montreal.qc.ca/portail/gestion-des-commentaires/">Gestion des commentaires et des échanges sur les médias sociaux</a></p>
+      <p>Si vous souhaitez laisser un commentaire privé, vous pouvez utiliser le formulaire <a href="http://donnees.ville.montreal.qc.ca/portail/nous-joindre/">Nous joindre</a>.</p>
+    </div>
+  {{ h.disqus_comments() }}
+{% endblock %}

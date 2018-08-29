@@ -1,0 +1,11 @@
+{#
+ 
+Enlevé la classe et le data-module "media-grid" à la balise UL pour désactiver Masonry
+
+#}
+
+<ul class="not-a-media-grid organizations">
+  {% for organization in organizations %}
+    {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index %}
+  {% endfor %}
+</ul>

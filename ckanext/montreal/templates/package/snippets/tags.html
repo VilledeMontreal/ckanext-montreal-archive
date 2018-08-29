@@ -1,0 +1,12 @@
+{#
+
+Ajouté un H3
+
+#}
+
+{% if tags %}
+  <section class="tags">
+  	<h3>{{ _('Tags') }}</h3>
+    {% snippet 'snippets/tag_list.html', tags=tags, _class='tag-list well' %}
+  </section>
+{% endif %}

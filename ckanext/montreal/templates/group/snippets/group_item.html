@@ -1,0 +1,14 @@
+{#
+ 
+La description n'est plus tronquée, est rendue en Markdown et placée dans un DIV avec une classe "description".
+
+#}
+
+{% ckan_extends %}
+
+
+{% block description %}
+  {% if group.description %}
+    <div class="description">{{ h.render_markdown(group.description) }}</div>
+  {% endif %}
+{% endblock %}

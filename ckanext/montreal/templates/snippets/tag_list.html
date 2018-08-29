@@ -1,0 +1,14 @@
+{#
+
+Les mots-clés ne sont plus tronqués
+
+#}
+
+{% set _class = _class or 'tag-list' %}
+<ul class="{{ _class }}">
+  {% for tag in tags %}
+    <li>
+      <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ tag.display_name }}</a>
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,43 @@
+{#
+
+Pour uniformiser les pages d'erreur 404 des deux plate-formes.
+
+#}
+
+{% extends "page.html" %}
+
+{% block subtitle %}{{ gettext('Error %(error_code)s', error_code=c.code[0]) }}{% endblock %}
+
+{% block primary %}
+  <article class="module erreur">
+  	<h1>Contenu introuvable</h1>
+    <div class="module-content">
+    	<p>Il semblerait que nous ne soyons pas en mesure de trouver votre contenu. Essayez en lançant une recherche.</p>
+    	<h2 class="recherchez">Rechercher un jeu de données</h2>
+    	<form class="search-form" method="get" action="/dataset">
+            <div>
+              <input type="text" class="search" name="q" value="" autocomplete="off">
+              <button type="submit" id="rechercher">Rechercher</button>
+            </div>
+        </form>
+        <h2 class="recherchez">Rechercher parmi les articles et pages hors-catalogue</h2>
+        <form action="/" class="searchform" id="searchform" method="get" role="search">
+			<div>
+				<input type="text" id="s" name="s" value="">
+				<input type="submit" value="Rechercher" id="searchsubmit">
+			</div>
+		</form>
+		<h2>Ou consultez <a href="/plan-du-site">le plan du site</a></h2>
+    </div>
+  </article>
+{% endblock %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block flash %}
+  {# eat the flash messages caused by the 404 #}
+  {% set flash_messages = h.flash.pop_messages() %}
+{% endblock %}
+
+{% block secondary %}{% endblock %}

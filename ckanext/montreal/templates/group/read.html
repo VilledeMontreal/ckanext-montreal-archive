@@ -1,0 +1,19 @@
+{# 
+
+Remplacé la boucle dans les facettes, pour ne nommer expressément que celles désirées
+
+#}
+
+{% ckan_extends %}
+
+
+{% block secondary_content %}
+
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['groups'], name='groups', extras={'id':c.group_dict.id}) }}
+  {# 
+  {{ h.snippet('snippets/facet_list.html', title="{{ _("Territoire") }}", name='vocab_territoires'), extras={'id':c.group_dict.id}) }}
+  #}
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['res_format'], name='res_format', extras={'id':c.group_dict.id}) }}
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['tags'], name='tags', extras={'id':c.group_dict.id}) }}
+  
+{% endblock %}

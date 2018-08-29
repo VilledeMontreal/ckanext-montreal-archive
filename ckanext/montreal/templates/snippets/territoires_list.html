@@ -1,0 +1,8 @@
+{% set _class = _class or 'tag-list' %}
+<ul class="{{ _class }}">
+  {% for territoire in territoires %}
+    <li>
+      <a class="tag" href="{% url_for controller='package', action='search', vocab_territoires=territoire %}">{{ h.truncate(territoire, 100) }}</a>
+    </li>
+  {% endfor %}
+</ul>

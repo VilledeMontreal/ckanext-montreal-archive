@@ -1,0 +1,11 @@
+{#
+ 
+Enlevé la classe et le data-module "media-grid" à la balise UL pour désactiver Masonry
+
+#}
+
+<ul class="not-a-media-grid related">
+  {% for related in related_items %}
+    {% snippet "related/snippets/related_item.html", pkg_id=pkg_id, related=related, position=loop.index %}
+  {% endfor %}
+</ul>

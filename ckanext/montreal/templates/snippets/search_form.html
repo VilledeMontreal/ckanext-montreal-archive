@@ -1,0 +1,29 @@
+{#
+ 
+Remplacé le paragraphe contenant tous les filtres sélectionnés par un ensemble de DIV (un par facette) afin d'afficher chaque type de filtre (facette) sur une ligne séparée
+
+#}
+
+{% ckan_extends %}
+{% block search_facets %}
+  {% if facets %}
+    <div class="filter-list">
+      {% for field in facets.fields %}
+        {% set search_facets_items = facets.search.get(field)['items'] %}
+        <div class="{{ field }}">
+        <span class="facet">{{ facets.titles.get(field) }}:</span>
+        {% for value in facets.fields[field] %}
+          <span class="filtered pill {{ value }}">
+            {%- if facets.translated_fields and facets.translated_fields.has_key((field,value)) -%}
+              {{ facets.translated_fields[(field,value)] }}
+            {%- else -%}
+              {{ h.list_dict_filter(search_facets_items, 'name', 'display_name', value) }}
+            {%- endif %}
+            <a href="{{ facets.remove_field(field, value) }}" class="remove" title="{{ _('Remove') }}"><i class="icon-remove"></i></a>
+          </span>
+        {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}

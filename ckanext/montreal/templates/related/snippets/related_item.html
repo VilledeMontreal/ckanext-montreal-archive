@@ -1,0 +1,53 @@
+{#
+
+Pour harmoniser les styles, un DIV "description" a été ajouté, comme pour les thématiques (group/snippets/group_item.html).
+
+Le span oblique nommant le type d'élément et qui ne se traduisait pas a été remplacé par un H2 et les différents types sont expressement gérés.
+
+Sera fait par CSS: Afficher une image par type. La balise image a donc été supprimée.
+
+#}
+
+{% set placeholder_map = {
+'application': h.url_for_static('/base/images/placeholder-application.png')
+} %}
+{% set tooltip = _('Go to {related_item_type}').format(related_item_type=related.type|replace('_', ' ')|title) %}
+<li class="related-item media-item {{ related.type }}" data-module="related-item">
+  <div class="related-type-icon">&nbsp;</div>
+  <h2 class="related-type">
+      {%- if related.type == 'api' -%}
+        API
+      {%- elif related.type == 'application' -%}
+        Application
+      {%- elif related.type == 'idea' -%}
+        Idée
+      {%- elif related.type == 'news_article' -%}
+        Article d'actualité
+      {%- elif related.type == 'paper' -%}
+        Article scientifique
+      {%- elif related.type == 'post' -%}
+        Billet de blogue
+      {%- elif related.type == 'visualization' -%}
+        Visualisation
+      {%- elif related.type == 'site_web_vdm' -%}
+        Site Web de la Ville de Montréal
+      {%- elif related.type == 'ensemble_donnees' -%}
+        Ensemble de données 
+      {%- else -%}
+        {{ related.type | replace('news_', '') }}
+      {%- endif -%}
+  </h2>
+  <h3 class="media-heading">{{ related.title }}</h3>
+  {% if related.description %}
+     <div class="description">{{ h.render_markdown(related.description) }}</div>
+  {% endif %}
+  <a class="media-view" href="{{ related.url }}" target="_blank" title="{{ tooltip }}">
+    <span>{{ tooltip }}</span>
+  </a>
+  {% if pkg_id %}
+    {{ h.nav_link(_('Edit'), controller='related', action='edit', id=pkg_id, related_id=related.id, class_='btn btn-primary btn-small media-edit') }}
+  {% endif %}
+</li>
+{% if position is divisibleby 3 %}
+  <li class="clearfix js-hide"></li>
+{% endif %}
