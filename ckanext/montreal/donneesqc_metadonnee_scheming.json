@@ -1,0 +1,482 @@
+{
+    "scheming_version": 1,
+    "dataset_type": "dataset",
+    "about": "A reimplementation of the default CKAN dataset schema for Donnees Quebec",
+    "about_url": "http://github.com/open-data/ckanext-scheming",
+    "dataset_fields": [
+        {
+            "field_name": "title",
+            "required": true,
+            "label": {
+                "en": "Title",
+                "fr": "Titre"
+            },
+            "preset": "title",
+            "form_placeholder": "eg. A descriptive title"
+        },
+        {
+            "field_name": "name",
+            "label": {
+                "en": "Dataset URL",
+                "fr": "URL de l'ensemble de données"
+            },
+            "preset": "dataset_slug",
+            "form_placeholder": "eg. nom ou identifiant de l'ensemble de données"
+        },
+        {
+            "field_name": "notes",
+            "form_snippet": "markdown.html",
+             "label": {
+                "en": "Description",
+                "fr": "Description"
+            },
+            "form_placeholder": "Par exemple : mettre une description et des notes utiles à l'ensemble de données."
+        },
+        {
+            "field_name": "tag_string",
+            "required": true,
+            "label": {
+                "en": "Tags",
+                "fr": "Mots clés"
+            },
+            "preset": "tag_string_autocomplete",
+            "form_placeholder": "1er mot clé, 2e mot clé, etc",
+            "help_text" : "Se référer au Thésaurus de l'activité gouvernementale (http://www.thesaurus.gouv.qc.ca/) Ex. transport.",
+            "inline" : false
+        },
+        {
+            "field_name": "license_id",
+            "required": true,
+            "label": {
+                "en": "Licence",
+                "fr": "License"
+            },
+            "choices": [
+                {
+                    "label": {
+                        "en": "CC-BY-4.0",
+                        "fr": "CC-BY-4.0"
+                    },
+                    "value": "cc-by"
+                },
+                {
+                    "label": {
+                        "en": "CC-BY-SA-4.0",
+                        "fr": "CC-BY-SA-4.0"
+                    },
+                    "value": "cc-by-sa"
+                },
+                {
+                    "label": {
+                        "en": "CC-BY-NC-4.0",
+                        "fr": "CC-BY-NC-4.0"
+                    },
+                    "value": "cc-by-nc"
+                },
+                {
+                    "label": {
+                        "en": "CMM",
+                        "fr": "CMM"
+                    },
+                    "value": "cmm"
+                },
+                {
+                    "label": {
+                        "en": "OGL-Canada-2.0",
+                        "fr": "OGL-Canada-2.0"
+                    },
+                    "value": "OGL-Canada-2.0"
+                }
+            ],
+            "form_snippet": "license.html",
+            "help_text": "Les définitions des licences internationales de Creative Commons peuvent être consultées à https://creativecommons.org/licenses/?lang=fr"
+        },
+        {
+            "field_name": "owner_org",
+            "label": {
+                "en": "Organization",
+                "fr": "Organisation"
+            },
+            "preset": "dataset_organization",
+            "required": true
+        },
+        {
+            "field_name": "author",
+            "required": true,
+            "label": {
+                "en": "Publisher",
+                "fr": "Publieur"
+            },
+            "form_placeholder": "Service, unité administrative, direction, etc.",
+            "display_property": "dc:creator"
+        },
+        {
+            "field_name": "author_email",
+            "label": {
+                "en": "Email",
+                "fr": "Courriel"
+            },
+            "form_placeholder": "@ville.montreal.qc.ca",
+            "display_property": "dc:creator",
+            "display_email_name_field": "author"
+        },
+        {
+            "field_name": "update_frequency",
+            "label": "Fréquence de mise à jour",
+            "label": {
+                "en": "Update frequency",
+                "fr": "Fréquence de mise à jour"
+            },
+            "required": true,
+            "preset": "select",
+            "choices": [{
+                    "label": {
+                        "en": "Select update frequency",
+                        "fr": "Choisir la fréquence de mise à jour"
+                    },
+                    "value": ""
+                },
+                {
+                    "label": {
+                        "en": "Irregular",
+                        "fr": "Irrégulier"
+                    },
+                    "value": "irregular"
+                },
+                {
+                    "label": {
+                        "en": "Continuous",
+                        "fr": "Temps réel"
+                    },
+                    "value": "continuous"
+                },
+                {
+                    "label": {
+                        "en": "Daily",
+                        "fr": "Quotidien"
+                    },
+                    "value": "daily"
+                },
+                {
+                    "label": {
+                        "en": "Weekly",
+                        "fr": "Hebdomadaire"
+                    },
+                    "value": "weekly"
+                },
+                {
+                    "label": {
+                        "en": "Monthly",
+                        "fr": "Mensuel"
+                    },
+                    "value": "monthly"
+                },
+                {
+                    "label": {
+                        "en": "Quarterly",
+                        "fr": "Trimestriel"
+                    },
+                    "value": "quarterly"
+                },
+                {
+                    "label": {
+                        "en": "Semi-annual",
+                        "fr": "Semi-annuel"
+                    },
+                    "value": "semiannual"
+                },
+                {
+                    "label": {
+                        "en": "Annual",
+                        "fr": "Annuel"
+                    },
+                    "value": "annual"
+                },
+                {
+                    "label": {
+                        "en": "Biennial",
+                        "fr": "Biennal"
+                    },
+                    "value": "biennial"
+                },
+                {
+                    "label": {
+                        "en": "Triennial",
+                        "fr": "Triennial"
+                    },
+                    "value": "triennial"
+                },
+                 {
+                    "label": {
+                        "en": "Not planned",
+                        "fr": "Non planifié"
+                    },
+                    "value": "notPlanned"
+                },
+                {
+                    "label": {
+                        "en": "Quinquennial",
+                        "fr": "Quinquennal"
+                    },
+                    "value": "quinquennial"
+                }
+            ]
+        },
+        {
+            "field_name": "language",
+            "required": true,
+            "label": {
+                "en": "Language",
+                "fr": "Langue"
+            },
+            "preset": "select",
+            "choices": [
+                {
+                    "label": {
+                        "en": "French",
+                        "fr": "Français"
+                    },
+                    "value": "FR"
+                },
+                {
+                    "label": {
+                        "en": "French and English",
+                        "fr": "Français et anglais"
+                    },
+                    "value": "FR_EN"
+                }
+            ]
+        },
+        {
+            "field_name": "ext_spatial",
+            "label": {
+                "en": "Geographical coverage",
+                "fr": "Couverture géographique"
+            },
+            "required": true,
+            "preset": "select",
+            "choices": [
+                {
+                    "label": "Territoire de la ville de Montréal",
+                    "value": "ville-montreal"
+                }
+            ]
+        },
+        {
+            "field_name": "temporal",
+            "form_placeholder": "AAAA-MM-JJ/AAAA-MM-JJ",
+            "label": {
+                "en": "Temporal",
+                "fr": "Couverture temporelle"
+            },
+            "help_text" : "Date de début et date de fin (séparées par une barre oblique)"
+        },
+        {
+            "field_name": "territoire",
+            "required": true,
+            "label": {
+                "en": "Territory",
+                "fr": "Territoire"
+            },
+            "preset": "multiple_select",
+            "choices": [
+                {
+                    "label": {
+                        "en": "Ahuntsic-Cartierville",
+                        "fr": "Ahuntsic-Cartierville"
+                    },
+                    "value": "AHU"
+                },
+                {
+                    "label": {
+                        "en": "Agglomération",
+                        "fr": "Agglomération"
+                    },
+                    "value": "agglomeration"
+                },
+                {
+                    "label": {
+                        "en": "Anjou",
+                        "fr": "Anjou"
+                    },
+                    "value": "ANJ"
+                },
+                {
+                    "label": {
+                        "en": "Côte-des-Neiges–Notre-Dame-de-Grâce",
+                        "fr": "Côte-des-Neiges–Notre-Dame-de-Grâce"
+                    },
+                    "value": "CDN"
+                },
+                {
+                    "label": {
+                        "en": "Lachine",
+                        "fr": "Lachine"
+                    },
+                    "value": "LAC"
+                },                
+                {
+                    "label": {
+                        "en": "LaSalle",
+                        "fr": "LaSalle"
+                    },
+                    "value": "LAS"
+                },                
+                {
+                    "label": {
+                        "en": "Le Plateau-Mont-Royal",
+                        "fr": "Le Plateau-Mont-Royal"
+                    },
+                    "value": "PLA"
+                },                
+                {
+                    "label": {
+                        "en": "Le Sud-Ouest",
+                        "fr": "Le Sud-Ouest"
+                    },
+                    "value": "LSO"
+                },                
+                {
+                    "label": {
+                        "en": "L’Île-Bizard–Sainte-Geneviève",
+                        "fr": "L’Île-Bizard–Sainte-Geneviève"
+                    },
+                    "value": "IBI"
+                },
+                {
+                    "label": {
+                        "en": "Mercier–Hochelaga-Maisonneuve",
+                        "fr": "Mercier–Hochelaga-Maisonneuve"
+                    },
+                    "value": "MHM"
+                },                
+                {
+                    "label": {
+                        "en": "Montréal",
+                        "fr": "Montréal"
+                    },
+                    "value": "montreal"
+                },                
+                {
+                    "label": {
+                        "en": "Montréal-Nord",
+                        "fr": "Montréal-Nord"
+                    },
+                    "value": "MTN"
+                },                
+                {
+                    "label": {
+                        "en": "Outremont",
+                        "fr": "Outremont"
+                    },
+                    "value": "OUT"
+                },                
+                {
+                    "label": {
+                        "en": "Pierrefonds-Roxboro",
+                        "fr": "Pierrefonds-Roxboro"
+                    },
+                    "value": "PRF"
+                },                
+                {
+                    "label": {
+                        "en": "Rivière-des-Prairies–Pointe-aux-Trembles",
+                        "fr": "Rivière-des-Prairies–Pointe-aux-Trembles"
+                    },
+                    "value": "RDP"
+                },                
+                {
+                    "label": {
+                        "en": "Rosemont–La Petite-Patrie",
+                        "fr": "Rosemont–La Petite-Patrie"
+                    },
+                    "value": "RPP"
+                },                
+                {
+                    "label": {
+                        "en": "Saint-Laurent",
+                        "fr": "Saint-Laurent"
+                    },
+                    "value": "VSL"
+                },                
+                {
+                    "label": {
+                        "en": "Saint-Léonard",
+                        "fr": "Saint-Léonard"
+                    },
+                    "value": "STL"
+                },                
+                {
+                    "label": {
+                        "en": "Verdun",
+                        "fr": "Verdun"
+                    },
+                    "value": "VER"
+                },                
+                {
+                    "label": {
+                        "en": "Ville-Marie",
+                        "fr": "Ville-Marie"
+                    },
+                    "value": "VIM"
+                },                
+                {
+                    "label": {
+                        "en": "Villeray–Saint-Michel–Parc-Extension",
+                        "fr": "Villeray–Saint-Michel–Parc-Extension"
+                    },
+                    "value": "VSE"
+                }
+            ],
+            "help_text" : "Pour faire une sélection multiple, utilisez les touches Shift ou Ctrl."
+        },
+        {
+            "field_name": "methodologie",
+            "form_snippet": "markdown.html",
+             "label": {
+                "en": "Methodology",
+                "fr": "Méthodologie"
+            },
+            "form_placeholder": "Par exemple : mettre la méthodologie de l'ensemble de données."
+        },
+        {
+            "field_name": "url",
+            "label": {
+                "en": "URL source",
+                "fr": "Source (URL)"
+            },
+            "form_placeholder": "http://www.siteweb.org",
+            "display_property": "foaf:homepage"
+        }
+    ],
+    "resource_fields": [
+        {
+            "field_name": "url",
+            "label": "URL",
+            "preset": "resource_url_upload"
+        },
+        {
+            "field_name": "name",
+            "label": {
+                "en": "Title",
+                "fr": "Titre"
+            },
+            "required": true,
+            "form_placeholder": "eg. Casernes de pompiers en format CSV"
+        },
+        {
+            "field_name": "description",
+            "form_snippet": "markdown.html",
+            "label": {
+                "en": "Description",
+                "fr": "Description"
+            },
+            "form_placeholder": "Une description et des notes utiles pour la compréhension du fichier."
+        },
+        {
+            "field_name": "format",
+            "label": "Format",
+            "preset": "resource_format_autocomplete"
+        }
+    ]
+}
