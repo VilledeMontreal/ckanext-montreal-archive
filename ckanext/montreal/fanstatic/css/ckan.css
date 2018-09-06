@@ -288,9 +288,8 @@ a.btn-primary {
 	/* background-color: #e6e6e6; */
 }
 .page-header .content_action {
-    /*position: absolute;
-    right: 5px;
-    top: -35px; */
+    margin-top: -10px;
+    margin-right: 15px;
 }
 .page-header .content_action a {
 	background-color: #f7f7f7;
@@ -1074,4 +1073,8 @@ section.module.module-narrow.social ul.nav.nav-simple li.nav-item{
 #icolinkedin{display:none;}
 .ie7 .controls .info-block{
 	position:relative;
+}
+
+.nav {
+	margin-left: 30px;
 }

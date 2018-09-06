@@ -27,17 +27,17 @@
                   <th class="table-actions">
                     <div class="btn-group">
                       <button name="bulk_action.public" value="public" class="btn" type="submit">
-                        <i class="icon-eye-open"></i>
+                        <i class="fa fa-eye"></i>
                         {{ _('Make public') }}
                       </button>
                       <button name="bulk_action.private" value="private" class="btn" type="submit">
-                        <i class="icon-eye-close"></i>
+                        <i class="fa fa-eye-slash"></i>
                         {{ _('Make private') }}
                       </button>
                     </div>
                     <div class="btn-group">
                       <button name="bulk_action.delete" value="delete" class="btn btn-danger" type="submit">
-                        <i class="icon-remove"></i>
+                        <i class="fa fa-times"></i>
                         {{ _('Delete') }}
                       </button>
                     </div>
@@ -98,7 +98,7 @@
       %}
       {% snippet 'snippets/search_form.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, no_title=true, search_class=' ' %}
 
-    
+
       {% for facet in c.facet_titles %}
         {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
       {% endfor %}

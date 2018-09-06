@@ -819,7 +819,7 @@ body.ckan .module-narrow .module-heading,
 
 /* Modules des facettes : afficher le + */
 #thematiques li.nav-item a:hover {
-    background: #EEEEEE url('http://donnees.ville.montreal.qc.ca/portail/wp-content/themes/donneesouvertes3/images/ie/icon-hover-plus.jpg') no-repeat;
+    background: #EEEEEE url('/images/icon-hover-plus.jpg') no-repeat;
 	background-position: 270px center;
 }
 /*

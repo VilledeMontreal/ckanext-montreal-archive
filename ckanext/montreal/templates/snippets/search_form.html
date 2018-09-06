@@ -1,5 +1,5 @@
 {#
- 
+
 Remplacé le paragraphe contenant tous les filtres sélectionnés par un ensemble de DIV (un par facette) afin d'afficher chaque type de filtre (facette) sur une ligne séparée
 
 #}
@@ -19,7 +19,7 @@ Remplacé le paragraphe contenant tous les filtres sélectionnés par un ensembl
             {%- else -%}
               {{ h.list_dict_filter(search_facets_items, 'name', 'display_name', value) }}
             {%- endif %}
-            <a href="{{ facets.remove_field(field, value) }}" class="remove" title="{{ _('Remove') }}"><i class="icon-remove"></i></a>
+            <a href="{{ facets.remove_field(field, value) }}" class="remove" title="{{ _('Remove') }}"><i class="fa fa-times"></i></a>
           </span>
         {% endfor %}
         </div>
