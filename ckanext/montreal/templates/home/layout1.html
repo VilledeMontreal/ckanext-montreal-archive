@@ -13,7 +13,6 @@
                     {% set groups = h.montreal_get_groups() %}
                     {% for group in groups %}
                         <li>
-                            {{group}}
                             <figure>
                                 <a href="{{ h.url_for(controller='group', action='read', id=group.id) }}">
                                     <img src="{{ group.image_display_url }}" />
@@ -25,20 +24,30 @@
                 </ul>
            </div>
     </div>
-    <div id="blocs-secondaires" class="row">
+
         <div class="bloc-accueil span4" id="actualites">
             <h2 class="widget-title">Actualités</h2>
-                                <h3><a href="http://donnees.ville.montreal.qc.ca/portail/intervention-autour-de-lutilisation-des-donnees-ouvertes-a-loccasion-de-100en1jour/">Interventions autour de l’utilisation des données ouvertes à l’occasion de 100En1Jour</a></h3>
-                    <p>Le 2 juin prochain à Montréal des citoyens de tous les horizons sont invités à accomplir des interventions afin d’améliorer […]</p>
-                                    <h3><a href="http://donnees.ville.montreal.qc.ca/portail/publication-de-linventaire-de-donnees-et-priorisation/">Publication de l’inventaire de données et priorisation</a></h3>
-                    <p>Aujourd’hui, la Ville de Montréal a annoncé la publication de son inventaire de données colligé dans le cadre de l’application […]</p>
-                                <a href="/portail/actualites" class="plus">Tous les articles <span class="meta-nav">→</span></a>
+            {% set posts = h.get_recent_pages_posts(2) %}
+            {% if posts %}
+            {% for post in posts %}
+            <h3><a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + post.name) }}">{{ post.title or post.name }}</a></h3>
+                <p>{{ post.content|striptags|truncate(130) }}</p>
+                  <a href="/pages" class="plus">Tous les articles <span class="meta-nav">→</span></a>
+            {% endfor %}
+            {% endif %}
         </div>
 
         <div class="bloc-accueil span4" id="palmares"><!-- jeux de données les plus consultés-->
             <h2 class="widget-title">Ensembles de données récemment ajoutés ou mis à jour</h2>
+            {% set datasets = h.get_recently_updated_datasets() %}
+            {% if datasets %}
             <ul>
-            <li><a href="http://donnees.ville.montreal.qc.ca/dataset/unites-evaluation-fonciere">Unités d'évaluation foncière</a></li><li><a href="http://donnees.ville.montreal.qc.ca/dataset/unites-evaluation-fonciere">Unités d'évaluation foncière</a></li><li><a href="http://donnees.ville.montreal.qc.ca/dataset/unites-evaluation-fonciere">Unités d'évaluation foncière</a></li><li><a href="http://donnees.ville.montreal.qc.ca/dataset/postes-taxis">Postes d'attente de taxi</a></li>            </ul>
+              {% for dataset in datasets %}
+              {% set href = h.url_for(controller='package', action='read', id=dataset.id) %}
+              <li><a href="{{ href }}">{{ dataset.title }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
             <!--<a href="/fiches/statistiques/" class="plus">Autres statistiques <span class="meta-nav">→</span></a>-->
         </div>
 

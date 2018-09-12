@@ -18,5 +18,8 @@ class MontrealPlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return {
-            'montreal_get_groups': helpers.get_groups
+            'montreal_get_groups': helpers.get_groups,
+            'get_recently_updated_datasets':
+                helpers.get_recently_updated_datasets,
+
         }
