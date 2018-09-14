@@ -23,15 +23,17 @@
                     {% endfor %}
                 </ul>
            </div>
-    </div>
+         </div>
+       </div>
 
+ <div id="blocs-secondaires" class="row">
         <div class="bloc-accueil span4" id="actualites">
             <h2 class="widget-title">Actualités</h2>
             {% set posts = h.get_recent_pages_posts(2) %}
             {% if posts %}
             {% for post in posts %}
             <h3><a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + post.name) }}">{{ post.title or post.name }}</a></h3>
-                <p>{{ post.content|striptags|truncate(130) }}</p>
+                <p>{{ h.strip_script_and_style_from_string(post.content)|striptags|truncate(130) }}</p>
                   <a href="/pages" class="plus">Tous les articles <span class="meta-nav">→</span></a>
             {% endfor %}
             {% endif %}
@@ -57,7 +59,6 @@
             ouvertes à Montréal</h2></div>
             <a class="twitter-timeline" data-lang="fr" data-height="340" href="https://twitter.com/MTL_DO">Tweets by MTL_DO</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div><!-- fin widget -->
-
     </div>
 </div><!-- #primary -->
 </div>
