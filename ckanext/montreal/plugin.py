@@ -6,6 +6,7 @@ from ckanext.montreal import helpers
 class MontrealPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IRoutes)
 
     # IConfigurer
 
@@ -23,3 +24,14 @@ class MontrealPlugin(plugins.SingletonPlugin):
                 helpers.get_recently_updated_datasets,
 
         }
+
+    # IRoutes
+
+    def before_map(self, map):
+        static_ctrl = 'ckanext.montreal.controller:StaticController'
+        map.connect('newsletter', '/newsletter',
+                    controller=static_ctrl, action='newsletter')
+        return map
+
+    def after_map(self, map):
+        return map
