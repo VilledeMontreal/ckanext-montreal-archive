@@ -8,8 +8,6 @@ Remplacé la boucle dans les facettes, pour ne nommer expressément que celles d
 
 
 {% block secondary_content %}
-prorpro
-{{c.group_dict.id}}
   {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['groups'], name='groups', extras={'id':c.group_dict.id}) }}
   {#
   {{ h.snippet('snippets/facet_list.html', title="{{ _("Territoire") }}", name='vocab_territoires'), extras={'id':c.group_dict.id}) }}
