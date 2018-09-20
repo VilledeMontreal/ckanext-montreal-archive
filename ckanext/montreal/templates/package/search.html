@@ -7,6 +7,7 @@ Remplacé la boucle dans les facettes, pour ne nommer expressément que celles d
 {% ckan_extends %}
 
 {% block secondary_content %}
+  {% snippet "spatial/snippets/spatial_query.html" %}
   {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['groups'], name='groups') }}
   {#
   {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['vocab_territoires'], name='vocab_territoires') }}
