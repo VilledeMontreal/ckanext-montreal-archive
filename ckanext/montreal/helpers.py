@@ -2,7 +2,6 @@ from ckan.plugins import toolkit
 
 import logging
 from datetime import datetime
-from pprint import pprint
 
 log = logging.getLogger()
 
@@ -42,5 +41,4 @@ def get_recently_updated_datasets(limit=5):
                 package['metadata_modified'].split('T')[0], '%Y-%m-%d')
             package['days_ago_modified'] = ((datetime.now() - modified).days)
             pkgs.append(package)
-        pprint(pkgs)
         return pkgs
