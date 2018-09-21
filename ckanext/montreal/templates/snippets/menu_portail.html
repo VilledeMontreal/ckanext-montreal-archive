@@ -98,5 +98,8 @@
         $('#formulaire-de-recherche').attr('action', '{{ site_url }}/pages_search');
         $('#expression-de-recherche').attr('placeholder', 'Rechercher parmi les actualitÃ©s, applications et pages d\'aide');
       })
+      $('#afficher-options-de-recherche').click(function() {
+        $('#bloc-recherche-permament').slideToggle('fast');
+      })
   });
 </script>
