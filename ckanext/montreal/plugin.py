@@ -31,6 +31,9 @@ class MontrealPlugin(plugins.SingletonPlugin):
         static_ctrl = 'ckanext.montreal.controller:StaticController'
         map.connect('newsletter', '/newsletter',
                     controller=static_ctrl, action='newsletter')
+        contact_ctrl = 'ckanext.montreal.controller:ContactController'
+        map.connect('contact', '/contact',
+                    controller=contact_ctrl, action='contact_form')
         return map
 
     def after_map(self, map):
