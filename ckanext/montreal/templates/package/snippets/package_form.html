@@ -1,4 +1,4 @@
-{# 
+{#
 
 Pour mieux afficher le bas du formulaire de saisie d'une fiche, notamment le texte de la license
 
@@ -11,7 +11,7 @@ Pour mieux afficher le bas du formulaire de saisie d'une fiche, notamment le tex
     {% block disclaimer %}
       <p class="action-info small" id="license-disclaimer">
         {%- trans -%}
-        <strong>Important</strong>: En soumettant du contenu, vous acceptez de publier vos contributions sous la <a href="http://donnees.ville.montreal.qc.ca/portail/licence/"­­>Licence de données ouvertes</a>.
+        <strong>Important</strong>: En soumettant du contenu, vous acceptez de publier vos contributions sous la <a href="{{ site_url }}/pages/licence"­­>Licence de données ouvertes</a>.
         {%- endtrans -%}
       </p>
     {% endblock %}
