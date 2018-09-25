@@ -29,7 +29,7 @@ class MontrealPlugin(plugins.SingletonPlugin):
 
     def before_map(self, map):
         static_ctrl = 'ckanext.montreal.controller:StaticController'
-        map.connect('newsletter', '/newsletter',
+        map.connect('newsletter', '/abonnement',
                     controller=static_ctrl, action='newsletter')
         contact_ctrl = 'ckanext.montreal.controller:ContactController'
         map.connect('contact', '/contact',
