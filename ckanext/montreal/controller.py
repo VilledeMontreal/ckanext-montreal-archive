@@ -53,20 +53,25 @@ class ContactController(BaseController):
                 error_summary['content'] = u'Missing value'
 
             if len(errors) == 0:
-
-                # TODO e-mail file attachment, param:to fallback
+                # TODO param:to fallback
+                dataset = data_dict.get('dataset', None)
+                to = config.get('ckanext.montreal.contact_mail_to')
+                subject = u"E-mail from contact form: {category}".format(category=data_dict['category'])
+                file = data_dict.get('attachment', None)
                 content = """Sent by:{newline}
                              Name: {name}{newline}
-                             Email: {email}{newline}{newline}
-                             Message:{newline}{content}""".format(
+                             Email: {email}{newline}""".format(
                              name=data_dict['name'],
                              email=data_dict['email'],
-                             content=data_dict['content'],
                              newline='</br>')
-                to = config.get('ckanext.montreal.contact_mail_to')
-                subject = "E-mail from contact form"
+
+                if dataset:
+                    content += "Affected dataset/resource: {dataset}{newline}".format(dataset=dataset, newline='</br>')
+
+                content += "{newline}Message:{newline}{content}".format(newline='</br>', content=data_dict['content'])
+
                 try:
-                    emailer.send_email(content=content, to=to, subject=subject)
+                    emailer.send_email(content=content, to=to, subject=subject, file=file)
                 except Exception as e:
                     log.error(e)
                     h.flash_error(
@@ -94,5 +99,7 @@ class ContactController(BaseController):
             if data.get('success', False):
                 return p.toolkit.render('contact/success.html')
             else:
-                vars = {'data': data, 'errors': errors, 'error_summary': error_summary}
+                vars = {'data': data,
+                        'errors': errors,
+                        'error_summary': error_summary}
                 return p.toolkit.render('contact/form.html', extra_vars=vars)

@@ -32,7 +32,7 @@ class MontrealPlugin(plugins.SingletonPlugin):
         map.connect('newsletter', '/abonnement',
                     controller=static_ctrl, action='newsletter')
         contact_ctrl = 'ckanext.montreal.controller:ContactController'
-        map.connect('contact', '/contact',
+        map.connect('contact', '/nous-joindre',
                     controller=contact_ctrl, action='contact_form')
         return map
 

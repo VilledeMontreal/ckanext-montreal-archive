@@ -2,7 +2,7 @@
 
 {% block contact_form %}
 
-    <form class="contact-form form-horizontal" method="post">
+    <form class="contact-form form-horizontal" method="post" enctype="multipart/form-data">
       {{ form.errors(error_summary) }}
 
       <fieldset>
@@ -13,7 +13,31 @@
 
             {{ form.input('email', label=_('Email'), id='field-email', type='email', value=data.email, error=errors.email, classes=['control-medium'], is_required=true) }}
 
-            {{ form.markdown('content', label=_('Your Request'), id='field-content', value=data.content, error=errors.content, placeholder=_('What do you have to tell us?'), is_required=true) }}
+            {% set options = [
+              'Demande de données ouvertes',
+              'Commentaires sur un ensemble de données ou une ressources',
+              'Suggestion d\'application',
+              'Inscription à l\'infolettre',
+              'Inscription à un atelier (employés municipaux seulement)',
+              'Contacter les responsables du portail',
+              'Autres commentaires'
+            ] %}
+            <div class="control-group">
+              <label class="control-label" for="field-category"><span title="This field is required" class="control-required">*</span>{{ _("Category") }}</label>
+                <div class="controls">
+                  <select id="field-category" name="category" data-module="autocomplete">
+                    {% for option in options %}
+                      <option {{ 'selected' if data.category == option }}>{{ option }}</option>
+                    {% endfor %}
+                  </select>
+               </div>
+            </div>
+
+            {{ form.input('dataset', label=_('Dataset or resource title'), id='field-dataset', value=data.dataset, error=errors.dataset, classes=['control-medium'], placeholder=_('If applicable, the title of the dataset or resource'), is_required=false) }}
+
+            {{ form.textarea('content', label=_('Comment'), id='field-content', value=data.content, error=errors.content, placeholder=_('What do you have to tell us?'), is_required=true) }}
+
+            {{ form.input('attachment', label=_('Attachment'), id='field-attachment', type='file', value=data.attachment, error=errors.attachment, classes=['control-medium'], is_required=false) }}
 
         {% endblock %}
 
@@ -22,7 +46,37 @@
       {% endif %}
 
       </fieldset>
-
+      <div style="background-color: #E6E2DB;color:#757575;">
+      <table bgcolor="#E6E2DB">
+        <tbody>
+          <tr>
+            <td style="padding: 20px;">Nous vous suggérons d'utiliser selon le cas :<p></p>
+              <ul style="list-style-type:disc; padding-left:5em; ">
+                <li>le formulaire "<a href="{{ site_url }}/pages/ddo" title="Demande de données ouvertes">Demande de données ouvertes</a>"</li>
+                <!-- <li>le formulaire "<a href="http://donnees.ville.montreal.qc.ca/portail/applications/suggestions-dapplications/" title="Suggestion d'application">Suggestion d'application</a>"</li> -->
+                <li>le formulaire "<a href="{{ site_url}}/abonnement">Abonnement à l'infolettre</a>"</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 20px;">Pour un commentaire sur un ensemble de données spécifique,<br>
+              Allez à la <a href="{{ site_url }}/dataset" title="Ensembles de données ouvertes">page de l'ensemble de données à commenter</a>
+          	</td>
+          </tr>
+          <tr>
+            <td style="padding: 20px;">S'il s'agit de problèmes techniques, soyez spécifique sur le contexte d'utilisation (quelle page, quel navigateur et sa version, etc.). Une capture d'écran serait appréciée.
+          	</td>
+          </tr>
+          <tr>
+            <td style="padding: 20px;">Pour une meilleure expérience de discussion <p></p>
+              <ul style="list-style-type:disc; padding-left:5em;">
+                <li>Ouvrir un compte dans <a href="https://disqus.com/next/login/?forum=ckanmtldata" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://disqus.com/next/login/?forum=ckanmtldata', 'DISQUS');" title="Joindre la communauté de discussion ckanmtldata" target="_blank">DISQUS</a> et joignez la communauté de discussion du Portail</li>
+              </ul>
+            </td>
+          </tr>
+      </tbody>
+      </table>
+    </div>
       <div class="form-actions">
         {% block contact_form_actions %}
             {{ form.required_message() }}
