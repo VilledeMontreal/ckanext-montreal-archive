@@ -67,7 +67,7 @@
     </div>
   </nav>
   <div {% if h.current_url() != '/' %} style="display:none;" {% endif %} id="bloc-recherche-permament">
-    <form action="/dataset" method="get" class="search-form" id="formulaire-de-recherche">
+    <form action="/dataset" method="get" class="search-form" id="dataset-search">
       <div class="search-input control-group search-giant">
         <input type="text" placeholder="Rechercher un ensemble de données" autocomplete="off" value="" name="q" class="search" id="expression-de-recherche">
         <button type="submit"> <i class="fa fa-search"></i> <span>Rechercher</span> </button>
@@ -91,11 +91,11 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#recherche-ckan').click(function(event) {
-        $('#formulaire-de-recherche').attr('action', '{{ site_url }}/dataset');
+        $('#dataset-search').attr('action', '{{ site_url }}/dataset');
         $('#expression-de-recherche').attr('placeholder', 'Rechercher un ensemble de donnÃ©es');
       })
       $('#recherche-wordpress').click(function(event) {
-        $('#formulaire-de-recherche').attr('action', '{{ site_url }}/pages_search');
+        $('#dataset-search').attr('action', '{{ site_url }}/pages_search');
         $('#expression-de-recherche').attr('placeholder', 'Rechercher parmi les actualitÃ©s, applications et pages d\'aide');
       })
       $('#afficher-options-de-recherche').click(function() {

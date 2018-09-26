@@ -405,7 +405,7 @@ Engin de recherche "dynamique"
 	padding: 20px;
 	position: relative;
 }
-#formulaire-de-recherche {
+#dataset-search {
 	border-bottom: none;
 	display: block;
 	margin-bottom: 0;
@@ -420,10 +420,10 @@ Engin de recherche "dynamique"
 	padding: 15px;
     width: 100%;
 }
-#formulaire-de-recherche.search-form .search-input {
+#dataset-search.search-form .search-input {
 	position:relative;
 }
-#formulaire-de-recherche.search-form .search-input.search-giant button {
+#dataset-search.search-form .search-input.search-giant button {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     cursor: pointer;
@@ -435,13 +435,13 @@ Engin de recherche "dynamique"
     right: 15px;
     top: 10px;
 }
-#formulaire-de-recherche.search-form .search-input.search-giant button i {
+#dataset-search.search-form .search-input.search-giant button i {
     font-size: 28px;
     width: 28px;
     color: #7C7C7C;
     transition: color 0.2s ease-in 0s;
 }
-#formulaire-de-recherche.search-form .search-input.search-giant button span {
+#dataset-search.search-form .search-input.search-giant button span {
     display: none;
 }
 #commutateur-recherche {

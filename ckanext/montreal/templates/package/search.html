@@ -6,15 +6,6 @@ Remplacé la boucle dans les facettes, pour ne nommer expressément que celles d
 
 {% ckan_extends %}
 
-{% block secondary_content %}
-  {% snippet "spatial/snippets/spatial_query.html" %}
-  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['groups'], name='groups') }}
-  {#
-  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['vocab_territoires'], name='vocab_territoires') }}
-  #}
-  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['res_format'], name='res_format') }}
-  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['tags'], name='tags') }}
-{% endblock %}
 {% block package_search_results_api_inner %}
 <small>
 {% set api_link = h.link_to(_('API'), h.url_for(controller='api', action='get_api', ver=3)) %}
@@ -30,4 +21,15 @@ Remplacé la boucle dans les facettes, pour ne nommer expressément que celles d
   {% endtrans %}
 {%- endif %}
 </small>
+{% endblock %}
+
+
+{% block secondary_content %}
+  {% snippet "spatial/snippets/spatial_query.html" %}
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['groups'], name='groups') }}
+  {#
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['vocab_territoires'], name='vocab_territoires') }}
+  #}
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['res_format'], name='res_format') }}
+  {{ h.snippet('snippets/facet_list.html', title=c.facet_titles['tags'], name='tags') }}
 {% endblock %}
