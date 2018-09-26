@@ -1000,3 +1000,7 @@ Divers
 		position: fixed;
 	}
 }
+
+.font-fix {
+	font-size: 14px;
+}

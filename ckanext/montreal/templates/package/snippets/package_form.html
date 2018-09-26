@@ -6,8 +6,54 @@ Pour mieux afficher le bas du formulaire de saisie d'une fiche, notamment le tex
 
 {% ckan_extends %}
 
-{% block form_actions %}
-  <div class="form-actions">
+
+{% set action = c.form_action or '' %}
+
+{# This provides a full page that renders a form for adding a dataset. It can
+then itself be extended to add/remove blocks of functionality. #}
+<form id="dataset-edit" class="dataset-form form-horizontal" method="post" action="{{ action }}" data-module="basic-form" novalidate>
+  {% block stages %}
+    {{ h.snippet('package/snippets/stages.html', stages=stage) }}
+  {% endblock %}
+
+  <input type="hidden" name="_ckan_phase" value="dataset_new_1" />
+  {# pkg_name used in 3 stage edit #}
+  <input type="hidden" name="pkg_name" value="{{ data.id }}" />
+  {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
+
+
+  {% block form_actions %}
+  <div data-module="custom-fields">
+    {% for extra in extras %}
+    {% set prefix = 'extras__%d__' % loop.index0 %}
+    {{ form.custom(
+      names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+      id='field-extras-%d' % loop.index,
+      label=_('Custom Field'),
+      values=(extra.key, extra.value, extra.deleted),
+      error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+      ) }}
+      {% endfor %}
+
+      {# Add a max of 3 empty columns #}
+      {% set total_extras = extras|count %}
+      {% set empty_extras = (limit or 3) - total_extras %}
+      {% if empty_extras <= 0 %}{% set empty_extras = 1 %}{% endif %}
+
+      {% for extra in range(total_extras, total_extras + empty_extras) %}
+      {% set index = loop.index0 + (extras|count) %}
+      {% set prefix = 'extras__%d__' % index %}
+      {{ form.custom(
+        names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
+        id='field-extras-%d' % index,
+        label=_('Custom Field'),
+        classes=['font-fix'],
+        values=(extra.key, extra.value, extra.deleted),
+        error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
+        ) }}
+        {% endfor %}
+      </div>
+    <div class="form-actions">
     {% block disclaimer %}
       <p class="action-info small" id="license-disclaimer">
         {%- trans -%}
@@ -26,4 +72,5 @@ Pour mieux afficher le bas du formulaire de saisie d'une fiche, notamment le tex
     {% endblock %}
     {{ form.required_message() }}
   </div>
-{% endblock %}
+  {% endblock %}
+</form>
