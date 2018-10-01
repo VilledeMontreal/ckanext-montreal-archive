@@ -23,6 +23,7 @@ then itself be extended to add/remove blocks of functionality. #}
 
 
   {% block form_actions %}
+{% set extras = c.pkg_dict.extras %}
   <div data-module="custom-fields">
     {% for extra in extras %}
     {% set prefix = 'extras__%d__' % loop.index0 %}
@@ -30,6 +31,7 @@ then itself be extended to add/remove blocks of functionality. #}
       names=(prefix ~ 'key', prefix ~ 'value', prefix ~ 'deleted'),
       id='field-extras-%d' % loop.index,
       label=_('Custom Field'),
+      classes=['font-fix'],
       values=(extra.key, extra.value, extra.deleted),
       error=errors[prefix ~ 'key'] or errors[prefix ~ 'value']
       ) }}
