@@ -9,9 +9,9 @@
 
         {% block contact_form_fields %}
 
-            {{ form.input('name', label=_('Contact Name'), id='field-name', value=data.name, error=errors.name, classes=['control-medium'], is_required=true) }}
+            {{ form.input('name', label=_('Votre nom'), id='field-name', value=data.name, error=errors.name, classes=['control-medium'], is_required=true) }}
 
-            {{ form.input('email', label=_('Email'), id='field-email', type='email', value=data.email, error=errors.email, classes=['control-medium'], is_required=true) }}
+            {{ form.input('email', label=_('Votre courriel'), id='field-email', type='email', value=data.email, error=errors.email, classes=['control-medium'], is_required=true) }}
 
             {% set options = [
               'Demande de données ouvertes',
@@ -23,7 +23,7 @@
               'Autres commentaires'
             ] %}
             <div class="control-group">
-              <label class="control-label" for="field-category"><span title="This field is required" class="control-required">*</span>{{ _("Category") }}</label>
+              <label class="control-label" for="field-category"><span title="This field is required" class="control-required">*</span>{{ _("Choisir une ou des catégories de messages") }}</label>
                 <div class="controls">
                   <select id="field-category" name="category" data-module="autocomplete">
                     {% for option in options %}
@@ -32,12 +32,11 @@
                   </select>
                </div>
             </div>
+            {{ form.input('dataset', label=_('S\'il y a lieu, le titre de l\'ensemble de données ou de la ressource'), id='field-dataset', value=data.dataset, error=errors.dataset, classes=['control-medium'], placeholder=_('If applicable, the title of the dataset or resource'), is_required=false) }}
 
-            {{ form.input('dataset', label=_('Dataset or resource title'), id='field-dataset', value=data.dataset, error=errors.dataset, classes=['control-medium'], placeholder=_('If applicable, the title of the dataset or resource'), is_required=false) }}
+            {{ form.textarea('content', label=_('Commentaire'), id='field-content', value=data.content, error=errors.content, placeholder=_('What do you have to tell us?'), is_required=true) }}
 
-            {{ form.textarea('content', label=_('Comment'), id='field-content', value=data.content, error=errors.content, placeholder=_('What do you have to tell us?'), is_required=true) }}
-
-            {{ form.input('attachment', label=_('Attachment'), id='field-attachment', type='file', value=data.attachment, error=errors.attachment, classes=['control-medium'], is_required=false) }}
+            {{ form.input('attachment', label=_('Pour un problème technique : capture d\'écran (PNG, JPG, JPEG, PDF)'), id='field-attachment', type='file', value=data.attachment, error=errors.attachment, classes=['control-medium'], is_required=false) }}
 
         {% endblock %}
 
