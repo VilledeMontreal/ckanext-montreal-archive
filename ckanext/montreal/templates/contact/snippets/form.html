@@ -32,9 +32,9 @@
                   </select>
                </div>
             </div>
-            {{ form.input('dataset', label=_('S\'il y a lieu, le titre de l\'ensemble de données ou de la ressource'), id='field-dataset', value=data.dataset, error=errors.dataset, classes=['control-medium'], placeholder=_('If applicable, the title of the dataset or resource'), is_required=false) }}
+            {{ form.input('dataset', label=_('S\'il y a lieu, le titre de l\'ensemble de données ou de la ressource'), id='field-dataset', value=data.dataset, error=errors.dataset, classes=['control-medium'], placeholder=_(''), is_required=false) }}
 
-            {{ form.textarea('content', label=_('Commentaire'), id='field-content', value=data.content, error=errors.content, placeholder=_('What do you have to tell us?'), is_required=true) }}
+            {{ form.textarea('content', label=_('Commentaire'), id='field-content', value=data.content, error=errors.content, placeholder=_(''), is_required=true) }}
 
             {{ form.input('attachment', label=_('Pour un problème technique : capture d\'écran (PNG, JPG, JPEG, PDF)'), id='field-attachment', type='file', value=data.attachment, error=errors.attachment, classes=['control-medium'], is_required=false) }}
 
