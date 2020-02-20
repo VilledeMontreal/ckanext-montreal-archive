@@ -116,13 +116,17 @@
                 "en": "Email",
                 "fr": "Courriel"
             },
-            "form_placeholder": "@ville.montreal.qc.ca",
-            "display_property": "dc:creator",
-            "display_email_name_field": "author"
+            "required": true,
+            "preset": "select",
+            "choices": [
+                {
+                    "label": "donneesouvertes@ville.montreal.qc.ca",
+                    "value": "donneesouvertes@ville.montreal.qc.ca"
+                }
+            ]
         },
         {
             "field_name": "update_frequency",
-            "label": "Fréquence de mise à jour",
             "label": {
                 "en": "Update frequency",
                 "fr": "Fréquence de mise à jour"
@@ -149,6 +153,13 @@
                         "fr": "Temps réel"
                     },
                     "value": "continuous"
+                },
+                {
+                    "label": {
+                        "en": "Hourly",
+                        "fr": "Horaire"
+                    },
+                    "value": "hourly"
                 },
                 {
                     "label": {
@@ -206,12 +217,19 @@
                     },
                     "value": "triennial"
                 },
-                 {
+                {
                     "label": {
                         "en": "Not planned",
                         "fr": "Non planifié"
                     },
                     "value": "notPlanned"
+                },
+                {
+                    "label": {
+                        "en": "As Needed",
+                        "fr": "Au besoin"
+                    },
+                    "value": "asNeeded"
                 },
                 {
                     "label": {
@@ -238,6 +256,14 @@
                     },
                     "value": "FR"
                 },
+                {
+                    "label": {
+                        "en": "Spanish",
+                        "fr": "Espagnol"
+                    },
+                    "value": "SP"
+                },
+
                 {
                     "label": {
                         "en": "French and English",
@@ -437,7 +463,7 @@
                 "en": "Methodology",
                 "fr": "Méthodologie"
             },
-            "form_placeholder": "Par exemple : mettre la méthodologie de l'ensemble de données."
+            "form_placeholder": "Caractéristiques importantes reliées au jeu de données, telles que les limites, la méthodologie, la fiabilité, etc."
         },
         {
             "field_name": "url",
@@ -477,6 +503,372 @@
             "field_name": "format",
             "label": "Format",
             "preset": "resource_format_autocomplete"
+        },
+        {
+            "field_name": "resource_type",
+            "label": {
+                "en": "Resource Type",
+                "fr": "Type de ressource"
+            },
+            "preset": "select",
+            "choices": [
+                {
+                    "label": {
+                        "en": "Data",
+                        "fr": "Données"
+                    },
+                    "value": "donnees"
+                },
+                {
+                    "label": {
+                        "en": "Guide and support document",
+                        "fr": "Guide et document support"
+                    },
+                    "value": "support"
+                },
+                {
+                    "label": {
+                        "en": "Web service",
+                        "fr": "Service Web"
+                    },
+                    "value": "web"
+                },
+                {
+                    "label": {
+                        "en": "Interactive Map",
+                        "fr": "Carte interactive"
+                    },
+                    "value": "cartes"
+                },
+                {
+                    "label": {
+                        "en": "file (do not select)",
+                        "fr": "file (ne pas sélectionner)"
+                    },
+                    "value": "file"
+                },
+                {
+                    "label": {
+                        "en": "file.upload (do not select)",
+                        "fr": "file.upload (ne pas sélectionner)"
+                    },
+                    "value": "file.upload"
+                }
+            ],
+            "help_text" : "Nature de la ressource ajoutée"
+        },
+        {
+            "field_name": "relidi_ressource_complementaire",
+            "label": {
+                "en": "Complementary Ressource",
+                "fr": "Ressource complémentaire"
+            },
+            "preset": "multiple_checkbox",
+            "form_placeholder": "cocher si la ressource est complémentaire",
+            "choices": [
+                {
+                    "label": " ",
+                    "value": "relidi.rescom"
+                }
+            ],
+            "help_text" : "Cette ressource est-elle complémentaire au jeu de donné associé ? Cocher si tel est le cas."
+        },
+        {
+            "field_name": "relidi_description_champs",
+            "label": {
+                "en": "Fields Description",
+                "fr": "Description des champs"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Fournie en ressource",
+                        "fr": "Fournie en ressource"
+                    },
+                    "value": "relidi.descha.foudoc"
+                },
+                {
+                    "label": {
+                        "en": "Fournie en métadonnées",
+                        "fr": "Fournie en métadonnées"
+                    },
+                    "value": "relidi.descha.foumet"
+                },
+                {
+                    "label": {
+                        "en": "Absente",
+                        "fr": "Absente"
+                    },
+                    "value": "relidi.descha.absent"
+                }
+            ],
+            "help_text" : "Choisir l'option correspondante"
+        },
+        {
+            "field_name": "relidi_confic_separateur_virgule",
+            "label": {
+                "en": "Coma Separator",
+                "fr": "Séparateur virgule"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_confic_utf8",
+            "label": {
+                "en": "UTF-8 / UTF-8 Tag",
+                "fr": "UTF-8 / Balise UTF-8"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_confic_epsg",
+            "label": {
+                "en": "EPSG : 4326 / EPSG : 32198",
+                "fr": "EPSG : 4326 / EPSG : 32198"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_confic_pascom",
+            "label": {
+                "en": "Pas de compression (sauf SHP, GTFS, GBFS)",
+                "fr": "Pas de compression (sauf SHP, GTFS, GBFS)"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_condon_valinc",
+            "label": {
+                "en": "Valeurs inconnues/non disponibles = vide",
+                "fr": "Valeurs inconnues/non disponibles = vide"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_condon_datheu",
+            "label": {
+                "en": "Date et heure (AAAA-MM-JJ/HH:MM:SS/AAAA-MM-JJTHH:MM:SS)",
+                "fr": "Date et heure (AAAA-MM-JJ/HH:MM:SS/AAAA-MM-JJTHH:MM:SS)"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_condon_nombre",
+            "label": {
+                "en": "Nombre (décimal « . », unité SI, $)",
+                "fr": "Nombre (décimal « . », unité SI, $)"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
+        },
+        {
+            "field_name": "relidi_condon_boolee",
+            "label": {
+                "en": "Booléen (valeur simple)",
+                "fr": "Booléen (valeur simple)"
+            },
+            "preset": "select",
+            "form_snippet": "select.html",
+            "choices": [
+               {
+                    "label": {
+                        "en": "Yes",
+                        "fr": "Oui"
+                    },
+                    "value": "oui"
+                },
+                {
+                    "label": {
+                        "en": "Non",
+                        "fr": "Non"
+                    },
+                    "value": "non"
+                },
+                {
+                    "label": {
+                        "en": "N/A",
+                        "fr": "n/a"
+                    },
+                    "value": "n/a"
+                }
+            ],
+            "help_text" : "Sélectionner l'option appropriée"
         }
     ]
 }
