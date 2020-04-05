@@ -1,5 +1,10 @@
 {% extends "package/read.html" %}
 
+{%- set exclude_fields = [
+    'territoire', 
+    'methodologie'
+    ] -%}
+
 {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
 
 {% block package_notes %}
