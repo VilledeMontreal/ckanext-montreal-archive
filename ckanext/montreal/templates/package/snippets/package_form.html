@@ -39,8 +39,8 @@ then itself be extended to add/remove blocks of functionality. #}
 
       {# Add a max of 3 empty columns #}
       {% set total_extras = extras|count %}
-      {% set empty_extras = (limit or 3) - total_extras %}
-      {% if empty_extras <= 0 %}{% set empty_extras = 1 %}{% endif %}
+      {% set empty_extras = (limit or 0) - total_extras %}
+      {% if empty_extras <= 0 %}{% set empty_extras = 0 %}{% endif %}
 
       {% for extra in range(total_extras, total_extras + empty_extras) %}
       {% set index = loop.index0 + (extras|count) %}
