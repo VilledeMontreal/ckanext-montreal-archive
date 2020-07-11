@@ -14,16 +14,35 @@
 
 {% block package_additional_info %}
   {%- for field in schema.dataset_fields -%}
-    {%- if field.field_name not in exclude_fields
-        and field.display_snippet is not none -%}
-      <tr>
-        <th scope="row" class="dataset-label">{{
-          h.scheming_language_text(field.label) }}</th>
-        <td class="dataset-details"{%
-          if field.display_property %} property="{{ field.display_property
-          }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
-          field=field, data=pkg_dict, schema=schema -%}</td>
-      </tr>
+    {%- if field.field_name not in exclude_fields and field.display_snippet is not none -%}
+      {%- if field.field_name|string() != "metadata_created" and field.field_name|string() != "metadata_modified" -%}
+        <tr>
+          <th scope="row" class="dataset-label">
+            {{ h.scheming_language_text(field.label) }}
+          </th>
+          <td class="dataset-details" {% if field.display_property %} property="{{ field.display_property }}" {% endif %}>
+            {%- snippet 'scheming/snippets/display_field.html', field=field, data=pkg_dict, schema=schema -%}
+          </td>
+        </tr>
+      {%- elif field.field_name|string() == "metadata_created"-%}
+        <tr>
+          <th scope="row" class="dataset-label">
+            {{ h.scheming_language_text(field.label) }}
+          </th>
+          <td class="dataset-details" {% if field.display_property %} property="{{ field.display_property }}" {% endif %}>
+            {{ h.render_datetime(pkg_dict.metadata_created, date_format='%Y-%m-%d %H:%M') }}
+          </td>
+        </tr>
+      {%- else -%}
+        <tr>
+          <th scope="row" class="dataset-label">
+            {{ h.scheming_language_text(field.label) }}
+          </th>
+          <td class="dataset-details" {% if field.display_property %} property="{{ field.display_property }}" {% endif %}>
+            {{ h.render_datetime(pkg_dict.metadata_modified, date_format='%Y-%m-%d %H:%M') }}
+          </td>
+        </tr>
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
   {% if h.check_access('package_update',{'id':pkg_dict.id}) %}

@@ -44,6 +44,20 @@
             "help_text" : "Se référer au Thésaurus de l'activité gouvernementale (http://www.thesaurus.gouv.qc.ca/) Ex. transport.",
             "inline" : false
         },
+        {   "field_name": "metadata_created",
+            "form_snippet": "local_friendly_datetime.html",
+            "label": {
+                "en": "Created",
+                "fr": "Créé le"
+            }
+        },
+        {   "field_name": "metadata_modified",
+            "form_snippet": "local_friendly_datetime.html",
+            "label": {
+                "en": "Last modification",
+                "fr": "Dernière modification"
+            }
+        },
         {
             "field_name": "license_id",
             "required": true,
