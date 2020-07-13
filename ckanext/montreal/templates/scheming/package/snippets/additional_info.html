@@ -26,6 +26,25 @@
       </tr>
     {%- endif -%}
   {%- endfor -%}
+
+  {% if pkg_dict.metadata_created %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Created") }}</th>
+      <td class="dataset-details">
+        {{ h.render_datetime(pkg_dict.metadata_created, date_format='%Y-%m-%d %H:%M') }}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict.metadata_modified %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Last Updated") }}</th>
+      <td class="dataset-details">
+        {{ h.render_datetime(pkg_dict.metadata_modified, date_format='%Y-%m-%d %H:%M') }}
+      </td>
+    </tr>
+  {% endif %}
+
   {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("State") }}</th>
