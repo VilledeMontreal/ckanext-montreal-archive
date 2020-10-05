@@ -120,8 +120,8 @@
             "preset": "select",
             "choices": [
                 {
-                    "label": "donneesouvertes@ville.montreal.qc.ca",
-                    "value": "donneesouvertes@ville.montreal.qc.ca"
+                    "label": "donneesouvertes@montreal.ca",
+                    "value": "donneesouvertes@montreal.ca"
                 }
             ]
         },
