@@ -10,12 +10,12 @@ class MontrealPlugin(plugins.SingletonPlugin):
 
     def download(self, package_id, resource_id, file_name):
         # This enables download of JSON files.
-        if response.content_type == 'Application/json':
+        if response.content_type == 'application/json':
             # Use Response with content_disposition as attachement.
             response.content_disposition = 'attachment'
             # Use Application/octet-stream to trigger
             # Open/Download dialog in browser
-            response.content_type = 'Application/octet-stream'
+            response.content_type = 'application/octet-stream'
             response.cache_control = 'no-cache';
         #Use ckan internal resource_download method
         return self.resource_download(package_id,resource_id,file_name)
