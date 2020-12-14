@@ -1,3 +1,6 @@
+## DEPRECATED ##
+See https://gitlab.com/datopian/clients/ckanext-montreal
+
 .. You should enable this project on travis-ci.org and coveralls.io to make
    these badges work. The necessary Travis and Coverage config files have been
    generated for you.
