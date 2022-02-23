@@ -481,6 +481,15 @@
             },
             "form_placeholder": "http://www.siteweb.org",
             "display_property": "foaf:homepage"
+        },
+        {
+            "field_name": "extras_flag_donnees_normalise",
+            "label": {
+                "en": "Données Québec Standard",
+                "fr": "Norme Données Québec"
+            },
+            "form_placeholder": "",
+            "help_text": "Pour en savoir plus sur les normes, visiter la section [normes établies par les partenaires|https://www.donneesquebec.ca/normes-etablies/] de Données Québec."
         }
     ],
     "resource_fields": [
