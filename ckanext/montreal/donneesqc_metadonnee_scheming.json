@@ -457,6 +457,14 @@
             "help_text" : "Pour faire une sélection multiple, utilisez les touches Shift ou Ctrl."
         },
         {
+            "field_name": "created",
+            "preset": "datetime_created",
+            "label": {
+                "en": "Created",
+                "fr": "Créé le"
+            }
+        },
+        {
             "field_name": "methodologie",
             "form_snippet": "markdown.html",
              "label": {

@@ -10,6 +10,7 @@
     'owner_org',
     'methodologie',
     'territoire',
+    'created'
     ] -%}
 
 {% block package_additional_info %}
@@ -27,7 +28,15 @@
     {%- endif -%}
   {%- endfor -%}
 
-  {% if pkg_dict.metadata_created %}
+
+  {% if pkg_dict.created %}
+      <tr>
+        <th scope="row" class="dataset-label">{{ _("Created") }}</th>
+        <td class="dataset-details">
+          {{ h.render_datetime(pkg_dict.created, date_format='%Y-%m-%d %H:%M') }}
+        </td>
+      </tr>
+  {% else %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Created") }}</th>
       <td class="dataset-details">
