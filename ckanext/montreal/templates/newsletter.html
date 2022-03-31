@@ -485,7 +485,7 @@
   <ul class="unstyled nav nav-simple nav-facet">
     {% for group in groups %}
     <li class="nav-item">
-      <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}"><span>{{group.display_name|truncate(40)}} ({{ group.package_count }})</span></a>
+      <a href="{{ h.url_for('group.read', id=group.name) }}"><span>{{group.display_name|truncate(40)}} ({{ group.package_count }})</span></a>
     </li>
     {% endfor %}
   </ul>

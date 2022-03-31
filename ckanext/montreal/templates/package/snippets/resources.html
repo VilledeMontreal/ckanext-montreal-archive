@@ -11,7 +11,7 @@ Troncature moins courte (43 plutôt que 25) des mots clés en colonne de gauche
     <ul class="unstyled nav nav-simple">
       {% for resource in resources %}
         <li class="nav-item{{ ' active' if active == resource.id }}">
-          {% link_for h.resource_display_name(resource)|truncate(43), controller='package', action=action or 'resource_read', id=pkg.name, resource_id=resource.id, inner_span=true %}
+          {% link_for h.resource_display_name(resource)|truncate(43), 'dataset.read' , id=pkg.name, resource_id=resource.id, inner_span=true %}
         </li>
       {% endfor %}
     </ul>
