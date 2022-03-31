@@ -1,11 +1,12 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckanext.montreal import helpers
+from ckanext.montreal import blueprint, helpers
 
 
 class MontrealPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.IRoutes)
 
     def download(self, package_id, resource_id, file_name):
@@ -37,12 +38,15 @@ class MontrealPlugin(plugins.SingletonPlugin):
 
         }
 
+    # IBlueprint
+
+    def get_blueprint(self):
+        return blueprint.get_blueprints()
+
+
     # IRoutes
 
     def before_map(self, map):
-        static_ctrl = 'ckanext.montreal.controller:StaticController'
-        map.connect('newsletter', '/abonnement',
-                    controller=static_ctrl, action='newsletter')
         contact_ctrl = 'ckanext.montreal.controller:ContactController'
         map.connect('contact', '/nous-joindre',
                     controller=contact_ctrl, action='contact_form')
