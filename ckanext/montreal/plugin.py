@@ -7,7 +7,7 @@ class MontrealPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IBlueprint)
-    plugins.implements(plugins.IRoutes)
+
 
     def download(self, package_id, resource_id, file_name):
         # This enables download of JSON files.
@@ -42,15 +42,3 @@ class MontrealPlugin(plugins.SingletonPlugin):
 
     def get_blueprint(self):
         return blueprint.get_blueprints()
-
-
-    # IRoutes
-
-    def before_map(self, map):
-        contact_ctrl = 'ckanext.montreal.controller:ContactController'
-        map.connect('contact', '/nous-joindre',
-                    controller=contact_ctrl, action='contact_form')
-        return map
-
-    def after_map(self, map):
-        return map
