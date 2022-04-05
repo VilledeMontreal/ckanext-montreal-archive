@@ -8,7 +8,7 @@ Les mots-clés ne sont plus tronqués
 <ul class="{{ _class }}">
   {% for tag in tags %}
     <li>
-      <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ tag.display_name }}</a>
+      <a class="tag" href="{% url_for('dataset.search') %}">{{ tag.display_name }}</a>
     </li>
   {% endfor %}
 </ul>

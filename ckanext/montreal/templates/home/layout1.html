@@ -33,7 +33,7 @@
             {% if posts %}
             {% for post in posts %}
             <h3><a href="{{ h.url_for('pages.show', page='/' + post.name) }}">{{ post.title or post.name }}</a></h3>
-                <p>{{ h.strip_script_and_style_from_string(post.content)|striptags|truncate(130) }}</p>
+                <p>{{ h.render_content(post.content) }}</p>
                   <a href="/blog" class="plus">Tous les articles <span class="meta-nav">→</span></a>
             {% endfor %}
             {% endif %}

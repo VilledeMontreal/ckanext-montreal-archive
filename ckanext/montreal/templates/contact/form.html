@@ -2,7 +2,7 @@
 
 {% block breadcrumb_content %}
     {{ super() }}
-  <li><a href="{{ h.url_for('contact_form') }}">Contact</a></li>
+  <li><a href="{{ h.url_for('montreal.contact_form') }}">Contact</a></li>
 
 {% endblock %}
 
@@ -22,8 +22,6 @@
 {% block secondary_content %}
 
 {% set groups = h.montreal_get_groups() %}
-<aside class="secondary span3">
-
 <section class="module module-narrow module-shallow groups">
 <h2 class="module-heading">{{ _('Groups') }}</h2>
 <nav>
@@ -47,7 +45,4 @@
     <li class="nav-item"><a href="https://twitter.com/share?url={{ current_url }}" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
   </ul>
 </section>
-
-</aside>
-
 {% endblock %}
