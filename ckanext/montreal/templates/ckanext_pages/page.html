@@ -1,0 +1,80 @@
+{% extends 'page.html' %}
+
+{% block subtitle %}{{ c.page.title }}{% endblock %}
+
+{% block primary %}
+<div class="primary col-sm-9">
+  <section class="module-content">
+
+    {% block ckanext_pages_actions %}
+      {% if h.check_access('ckanext_pages_update') %}
+
+        {% if h.ckan_version().split('.')[1] | int >= 9 %}
+
+          {% snippet 'ckanext_pages/snippets/pages_asset.html', name='pages/main-css' %}
+
+          {% link_for _('Edit'), named_route='pages.edit', page=c.page.name, class_='btn btn-primary pull-right', icon='edit' %}
+        {% else %}
+          {% link_for _('Edit'), controller='ckanext.pages.controller:PagesController', action='pages_edit', page='/' + c.page.name, class_='btn btn-primary pull-right', icon='edit' %}
+        {% endif %}
+      {% endif %}
+    {% endblock %}
+    <h1 class="page-heading">{{ c.page.title }}</h1>
+      {% block ckanext_pages_content %}
+        {% if c.page.content %}
+          <div class="ckanext-pages-content">
+            {% set editor = h.get_wysiwyg_editor() %}
+            <!-- editor set to "{{ editor }}"-->
+            {% if editor %}
+              <div>
+                  {{c.page.content|safe}}
+              </div>
+            {% else %}
+              {{ h.render_content(c.page.content) }}
+            {% endif %}
+          </div>
+        {% else %}
+          <p class="empty">{{ _('This page currently has no content') }}</p>
+        {% endif %}
+
+      {% endblock %}
+  </section>
+</div>
+{% endblock %}
+
+{% block secondary %}
+{% set groups = h.montreal_get_groups() %}
+<aside class="secondary col-sm-3">
+
+  <section class="module module-narrow module-shallow groups">
+    <h2 class="module-heading">{{ _('Groups') }}</h2>
+    <nav>
+      <ul class="unstyled nav nav-simple nav-facet">
+        {% for group in groups %}
+        <li class="nav-item">
+          <a href="{{ h.url_for('group.read', id=group.name) }}"><span>{{group.display_name|truncate(40)}}
+              ({{ group.package_count }})</span></a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </section>
+
+  {% set current_url = h.full_current_url() %}
+  <section class="module module-narrow module-shallow groups">
+    <h2 class="module-heading">{{ _('Social') }}</h2>
+    <ul class="unstyled nav nav-simple nav-facet">
+      <li class="nav-item"><a href="https://www.facebook.com/sharer.php?u={{ current_url }}" target="_blank"><i
+            class="fa fa-facebook"></i> Facebook</a></li>
+      <li class="nav-item"><a href="https://plus.google.com/share?url={{ current_url }}" target="_blank"><i
+            class="fa fa-google-plus"></i> Google+</a></li>
+      <li class="nav-item"><a
+          href="http://www.linkedin.com/shareArticle?mini=true&url={ current_url }&source=Portail%20donn%C3%A9es%20ouvertes%20de%20la%20Ville%20de%20Montr%C3%A9al"
+          target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+      <li class="nav-item"><a href="https://twitter.com/share?url={{ current_url }}" target="_blank"><i
+            class="fa fa-twitter"></i> Twitter</a></li>
+    </ul>
+  </section>
+
+</aside>
+{% endblock %}
