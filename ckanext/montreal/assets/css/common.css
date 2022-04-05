@@ -42,6 +42,7 @@ Pre-header
 	display: block;
 	background-color: #E6E2DB;
 	/* width: 960px; */
+	margin-bottom: 1%;
 	height: 40px;
 	padding-top: 10px;
 }
@@ -126,7 +127,7 @@ Header
 	background-color: #E6E2DB;
 	display: block;
 	margin-bottom: 20px;
-	padding: 0;
+	/*padding-left: 0px;*/
 }
 #masthead hgroup {
 	background-color: #E4312A;
@@ -136,7 +137,7 @@ Header
 	padding: 0;
 }
 h1#titre-site {
-	width: 180px;
+	width: 25%;
 	text-align: left;
 }
 h1#titre-site a {
@@ -523,9 +524,15 @@ aside.widget h3.widget-title {
 Footer
 */
 footer#colophon {
+	width: 880px;
 	background-color: #FFFFFF;
 	border-top: 4px solid #E4312A;
 	overflow: hidden;
+	
+}
+#menu-footer {
+	display: flex;
+    padding: 0% 2%;
 }
 #menu-footer ul.cat_col {
     list-style: none outside none;
@@ -536,6 +543,7 @@ footer#colophon {
 #menu-footer ul#cat-col-1,
 #menu-footer ul#cat-col-2 {
     text-align: left;
+	margin-left: 0px;
 }
 #menu-footer ul#cat-col-3 {
 	margin-right: -20px;
@@ -601,8 +609,7 @@ body.ckan .ckan-comment-thread h3 {
 Boutons unifiés
 */
 .btn,
-.search-form button,
-input[type="submit"],
+
 input[type="button"],
 input[type="reset"],
 article.post-password-required input[type="submit"],
@@ -634,6 +641,13 @@ li.bypostauthor cite span {
     text-align: center;
     text-shadow: none;
     vertical-align: middle;
+}
+.search-form button {
+    background-color: #fff;
+	padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
 }
 
 .menu-toggle:hover,

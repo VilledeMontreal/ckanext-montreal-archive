@@ -47,10 +47,11 @@
   width: 380px;
 }
 .span4 {
-  width: 300px;
+  width: 280px;
 }
 .span3 {
-  width: 220px;
+  width: 200px;
+  margin-left: 0;
 }
 .span2 {
   width: 140px;
