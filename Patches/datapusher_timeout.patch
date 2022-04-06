@@ -1,0 +1,16 @@
+diff --git a/ckanext/datapusher/logic/action.py b/ckanext/datapusher/logic/action.py
+index d6a86fb38..8c8bc8122 100644
+--- a/ckanext/datapusher/logic/action.py
++++ b/ckanext/datapusher/logic/action.py
+@@ -297,9 +297,9 @@ def datapusher_status(context, data_dict):
+     job_id = value.get('job_id')
+     url = None
+     job_detail = None
+-
++    log_limit = config.get('ckan.datapusher.log_limit', 100)
+     if job_id:
+-        url = urljoin(datapusher_url, 'job' + '/' + job_id)
++        url = urljoin(datapusher_url, 'job' + '/' + job_id + '?limit=%s'%log_limit)
+         try:
+             r = requests.get(url,
+                              timeout=TIMEOUT,
