@@ -14,7 +14,7 @@
         {
             "preset_name": "datetime_created",
             "values": {
-                "form_snippet": "datetime_created.html",
+                "form_snippet": "date_created.html",
                 "display_snippet": "datetime.html",
                 "validators": "scheming_isodatetime convert_to_json_if_datetime"
             }

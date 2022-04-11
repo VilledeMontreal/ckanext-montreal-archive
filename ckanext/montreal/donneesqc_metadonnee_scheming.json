@@ -461,7 +461,7 @@
             "preset": "datetime_created",
             "label": {
                 "en": "Created",
-                "fr": "Créé le"
+                "fr": "Date d'ajout de l'ensemble de données"
             }
         },
         {
