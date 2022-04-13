@@ -1,12 +1,14 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.montreal import helpers
+from ckan.lib.plugins import DefaultTranslation
 
 
-class MontrealPlugin(plugins.SingletonPlugin):
+class MontrealPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IRoutes)
+    plugins.implements(plugins.ITranslation)
 
     def download(self, package_id, resource_id, file_name):
         # This enables download of JSON files.
