@@ -5,7 +5,7 @@ frontend-v2 app documentation and Dockerfile for the Montreal CKAN setup: https:
 
 ## Local CKAN backend with custom Montreal extension
 
-CKAN 2.9.5. List of extensions for local development: `s3filestore`, `montreal`, `scheming`, `pages`, `showcase`, `harvest`, `dcat`, `spatial` and `noanonaccess`
+CKAN 2.9.5. List of extensions for local development: `s3filestore`, `montreal`, `scheming`, `pages`, `showcase`, `harvest`, `dcat`, `spatial`, `report` and `noanonaccess`
 
 For production `disqus` and `googleanalytics` need to be added
   
@@ -120,9 +120,26 @@ psql -d ckan_default -c 'ALTER VIEW geometry_columns OWNER TO ckan_default;
 psql -d ckan_default -c 'ALTER TABLE spatial_ref_sys OWNER TO ckan_default;
 ```
 
+## report
+Follow the extension’s documentation for installing it.
+https://github.com/ckan/ckanext-report
+
+```
+ckan.plugins = report
+```
+To initialaize the database instead of 
+
+```
+(pyenv) $ paster --plugin=ckanext-report report initdb --config=mysite.ini
+```
+Use 
+```
+(pyenv) $ ckan -c /path/to/your/ckan.ini report initdb
+```
+
 ## noanonaccess
 (not necessary for local development)
-https://github.com/datopian/ckanext-noanonaccess
+https://github.com/keitaroinc/ckanext-noanonaccess/tree/fix-redirect
 ```
 #Set this True to enable anon access for RSS feeds
 ckanext.noanonaccess.allow_feeds = true
@@ -134,9 +151,9 @@ ckan.plugins = image_view text_view recline_view datastore datapusher s3filestor
 
 synchronous_search stats resource_proxy recline_grid_view recline_graph_view
 
-recline_map_view spatial_metadata spatial_query webpage_view pdf_view montreal
+recline_map_view spatial_metadata spatial_query webpage_view pdf_view report
 
-scheming_datasets pages showcase harvest ckan_harvester dcat dcat_rdf_harvester
+montreal scheming_datasets pages showcase harvest ckan_harvester dcat 
 
-dcat_json_harvester dcat_json_interface structured_data noanonaccess
+dcat_rdf_harvesterdcat_json_harvester dcat_json_interface structured_data noanonaccess
 ```
