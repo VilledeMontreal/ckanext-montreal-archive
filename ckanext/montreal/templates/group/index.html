@@ -13,7 +13,7 @@ Le H1 qui était caché s'est fait enlever la classe "hide-heading"
 {% block subtitle %}{{ _('Groups') }}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li class="active">{% link_for _('Groups'), controller='group', action='index' %}</li>
+  <li class="active">{% link_for _('Groups'), named_route='group.index' %}</li>
 {% endblock %}
 
 {% block primary %}
@@ -37,7 +37,7 @@ Le H1 qui était caché s'est fait enlever la classe "hide-heading"
             <div class="page_primary_action">
               {% block page_primary_action %}
                 {% if h.check_access('group_create') %}
-                  {% link_for _('Add Group'), controller='group', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
+                  {% link_for _('Add Group'), named_route='group.new', class_='btn btn-primary', icon='plus-square' %}
                 {% endif %}
               {% endblock %}
             </div>
