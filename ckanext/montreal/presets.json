@@ -1,0 +1,23 @@
+{
+    "scheming_presets_version": 1,
+    "about": "extra scheming field presets",
+    "about_url": "https://github.com/VilledeMontreal/ckanext-montreal",
+    "presets": [
+        {
+            "preset_name": "date_created",
+            "values": {
+                "form_snippet": "date_created.html",
+                "display_snippet": "date.html",
+                "validators": "scheming_required isodate convert_to_json_if_date"
+            }
+        },
+        {
+            "preset_name": "datetime_created",
+            "values": {
+                "form_snippet": "date_created.html",
+                "display_snippet": "datetime.html",
+                "validators": "scheming_isodatetime convert_to_json_if_datetime"
+            }
+        }
+    ]
+}
