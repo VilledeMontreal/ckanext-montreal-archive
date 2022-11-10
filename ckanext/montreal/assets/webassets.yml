@@ -1,5 +1,5 @@
 montreal-main:
-  output: montreal/%(version)_montreal-main.css
+  output: montreal/%(version)s_montreal-main.css
   contents:
     - css/accueil.css
     - css/bootstrap.css
