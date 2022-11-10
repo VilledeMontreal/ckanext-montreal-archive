@@ -1,0 +1,23 @@
+Bonjour,
+
+Voici votre invitation pour accéder à l’interface d’administration du site web des données ouvertes de la Ville de
+Montréal, en environnement de production.
+
+Votre compte utilisateur pour le site web des données ouvertes est indépendant des autres systèmes informatiques de la
+Ville et requiert la création d’un nouveau mot de passe. Pour accéder à votre compte, veuillez suivre la procédure de
+réinitialisation de mot de passe.
+
+    {{ reset_link }}
+
+Le nom d’utilisateur {{ user_name }} devrait correspondre à votre code U. Si ce n’est pas le cas, merci de joindre un
+membre de notre équipe à donneesouvertes@montreal.ca.
+Informations complémentaires:
+    • Vous pouvez ajouter l’adresse https://data.montreal.ca à vos marque-pages pour accéder à l’interface d’administration
+    plus rapidement.
+    • Le site web public des données ouvertes est accessible à l’adresse https://donnees.montreal.ca/.
+    • Toute modification apportée via l’interface d’administration sera visible et accessible au grand public. Prenez le
+    temps de valider vos modifications!
+Pour toute question ou information complémentaire, vous pouvez rejoindre notre équipe à l’adresse
+donneesouvertes@montreal.ca.
+
+Merci!

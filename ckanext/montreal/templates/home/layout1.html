@@ -14,7 +14,7 @@
                     {% for group in groups %}
                         <li>
                             <figure>
-                                <a href="{{ h.url_for(controller='group', action='read', id=group.id) }}">
+                                <a href="{{ h.url_for('group.read', id=group.id) }}">
                                     <img src="{{ group.image_display_url }}" />
                                 </a>
                                 <figcaption>{{ group.title }}</figcaption>
@@ -32,8 +32,8 @@
             {% set posts = h.get_recent_blog_posts(2) %}
             {% if posts %}
             {% for post in posts %}
-            <h3><a href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + post.name) }}">{{ post.title or post.name }}</a></h3>
-                <p>{{ h.strip_script_and_style_from_string(post.content)|striptags|truncate(130) }}</p>
+            <h3><a href="{{ h.url_for('pages.show', page='/' + post.name) }}">{{ post.title or post.name }}</a></h3>
+                <p>{{ h.render_content(post.content) }}</p>
                   <a href="/blog" class="plus">Tous les articles <span class="meta-nav">→</span></a>
             {% endfor %}
             {% endif %}
@@ -45,7 +45,7 @@
             {% if datasets %}
             <ul>
               {% for dataset in datasets %}
-              {% set href = h.url_for(controller='package', action='read', id=dataset.id) %}
+              {% set href = h.url_for('dataset.read', id=dataset.id) %}
               <li><a href="{{ href }}">{{ dataset.title }}</a></li>
               {% endfor %}
             </ul>

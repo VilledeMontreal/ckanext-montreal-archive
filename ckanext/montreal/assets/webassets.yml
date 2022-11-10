@@ -1,0 +1,8 @@
+montreal-main:
+  output: montreal/%(version)s_montreal-main.css
+  contents:
+    - css/accueil.css
+    - css/bootstrap.css
+    - css/ckan.css
+    - css/common.css
+    - css/style.css

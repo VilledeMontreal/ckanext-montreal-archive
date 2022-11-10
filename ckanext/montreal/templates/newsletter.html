@@ -1,7 +1,7 @@
 {% extends "page.html" %}
  {% block primary %}
 <article class="">
-  <div class="primary span9 module">
+  <div class="primary col-sm-9 module">
 
   <div class="module-content">
     <h1>Abonnement à l’infolettre
@@ -485,7 +485,7 @@
   <ul class="unstyled nav nav-simple nav-facet">
     {% for group in groups %}
     <li class="nav-item">
-      <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}"><span>{{group.display_name|truncate(40)}} ({{ group.package_count }})</span></a>
+      <a href="{{ h.url_for('group.read', id=group.name) }}"><span>{{group.display_name|truncate(40)}} ({{ group.package_count }})</span></a>
     </li>
     {% endfor %}
   </ul>

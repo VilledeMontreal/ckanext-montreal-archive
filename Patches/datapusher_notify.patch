@@ -1,0 +1,23 @@
+diff --git a/ckanext/datapusher/plugin.py b/ckanext/datapusher/plugin.py
+index a1f6c3ef4..be3a2f3e6 100644
+--- a/ckanext/datapusher/plugin.py
++++ b/ckanext/datapusher/plugin.py
+@@ -112,6 +112,9 @@ class DatapusherPlugin(p.SingletonPlugin):
+                     u'key': u'datapusher'
+                 }
+             )
++            log.info("Task ==========>")
++            log.info(task.get('state'))
++            log.info(resource_dict)
+ 
+             if task.get(u'state') in (u'pending', u'submitting'):
+                 # There already is a pending DataPusher submission,
+@@ -125,6 +128,8 @@ class DatapusherPlugin(p.SingletonPlugin):
+             pass
+ 
+         try:
++            log.info("Resource Submit ==========>")
++            log.info(resource_dict)
+             log.debug(
+                 u'Submitting resource {0}'.format(resource_dict['id']) +
+                 u' to DataPusher'

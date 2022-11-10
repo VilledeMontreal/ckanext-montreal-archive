@@ -1,12 +1,14 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckanext.montreal import helpers
+from ckanext.montreal import blueprint, helpers
+from ckan.lib.plugins import DefaultTranslation
 
 
-class MontrealPlugin(plugins.SingletonPlugin):
+class MontrealPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
-    plugins.implements(plugins.IRoutes)
+    plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.ITranslation)
 
     def download(self, package_id, resource_id, file_name):
         # This enables download of JSON files.
@@ -25,7 +27,7 @@ class MontrealPlugin(plugins.SingletonPlugin):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic', 'montreal')
+        toolkit.add_resource('assets', 'montreal')
 
     # ITemplateHelpers
 
@@ -37,16 +39,7 @@ class MontrealPlugin(plugins.SingletonPlugin):
 
         }
 
-    # IRoutes
+    # IBlueprint
 
-    def before_map(self, map):
-        static_ctrl = 'ckanext.montreal.controller:StaticController'
-        map.connect('newsletter', '/abonnement',
-                    controller=static_ctrl, action='newsletter')
-        contact_ctrl = 'ckanext.montreal.controller:ContactController'
-        map.connect('contact', '/nous-joindre',
-                    controller=contact_ctrl, action='contact_form')
-        return map
-
-    def after_map(self, map):
-        return map
+    def get_blueprint(self):
+        return blueprint.get_blueprints()
